@@ -373,7 +373,7 @@
 
   <div class="pattern-center-sakura single-center">
     <!-- 有配图默认渲染第一张 -->
-    <div class="pattern-attachment-img lazyload" style="background-image: url(https://cdn.jsdelivr.net/gh/Tian-Xing/cdn@2.0/cartoon/dp优化.jpg);" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/Tian-Xing/cdn@2.0/cartoon/dp优化.jpg">
+    <div class="pattern-attachment-img lazyload" style="background-image: url(https://cdn.jsdelivr.net/gh/Tian-Xing/cdn@2.0.3.1/cartoon/dp优化.jpg);" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/Tian-Xing/cdn@2.0.3.1/cartoon/dp优化.jpg">
     </div>
     <header class="pattern-header single-header">
       <h1 class="entry-title">
@@ -389,7 +389,7 @@
         </span>
         <span class="bull">
           <i class="fa fa-calendar" aria-hidden="true"></i></span>
-        2019-10-9<span class="bull">
+        2019-10-30<span class="bull">
           <i class="fa fa-eye" aria-hidden="true"></i></span>
       <span id="busuanzi_value_page_pv"></span>次阅读</p>
       
@@ -448,7 +448,7 @@
 <blockquote>
 <p>如果有多个可行解，它们的不协调度都是最小值，则输出任意一个解均可。若最小的不协调度超过10^18，则输出“Too hard to arrange”（不含引号）。每组测试数据结束后输出“——————–”（不含引号），共20个“-”，“-”的ASCII码为45，请勿输出多余的空行或者空格。</p>
 </blockquote>
-<p>$显然令dp[i]表示前i句诗的最小不协调值，sum[i]为前i句诗的前缀和长度$<br>$有状态转移方程:dp[i]=min_{i=0}^jabs(sum[i]-sum[j]+i-j-1-L)^p$<br>$我们如果证明这个式子可以用四边形不等式优化，就可以O(nlogn)求出答案$<br>$设w(i,j)=abs(sum[i]-sum[j]+i-j-1-L)^p$<br>$那么如果w(a,b+1)+w(a+1,b)&gt;=w(a+1,b+1)+w(a,b)，就可以说明它满足四边形不等式$<br>$那么只需证明w(a+1,b)-w(a+1,b+1)&gt;=w(a,b)-w(a,b+1)即可$<br>$令b1=sum[b]+b-sum[a]-a-l-1,b2=sum[b]+b-sum[a]-a-1-l-1$<br>$只需证明abs(b2)^p-abs(b2+(a[i+1]+1))^p&gt;=abs(b1)^p-abs(b1+(a[i+1]+1))^p即可$<br>$易得，b2&gt;b1,那么只需证明对于任意的常数c,函数y=abs(x)^p-abs(x+c)^p单调递减$<br><del>我太菜了不会证明emmmm，引用算法竞赛进阶指南</del></p>
+<p>显然令dp[i]表示前i句诗的最小不协调值，sum[i]为前i句诗的前缀和长度<br>有状态转移方程:$dp[i]=min_{i=0}^jabs(sum[i]-sum[j]+i-j-1-L)^p$<br>我们如果证明这个式子可以用四边形不等式优化，就可以O(nlogn)求出答案<br>设$w(i,j)=abs(sum[i]-sum[j]+i-j-1-L)^p$<br>那么如果$w(a,b+1)+w(a+1,b)&gt;=w(a+1,b+1)+w(a,b)$，就可以说明它满足四边形不等式<br>那么只需证明$w(a+1,b)-w(a+1,b+1)&gt;=w(a,b)-w(a,b+1)$即可<br>令$b1=sum[b]+b-sum[a]-a-l-1,b2=sum[b]+b-sum[a]-a-1-l-1$<br>只需证明$abs(b2)^p-abs(b2+(a[i+1]+1))^p&gt;=abs(b1)^p-abs(b1+(a[i+1]+1))^p$即可<br>易得，$b2&gt;b1$,那么只需证明对于任意的常数c,函数$y=abs(x)^p-abs(x+c)^p$单调递减<br><del>我太菜了不会证明emmmm，引用算法竞赛进阶指南</del></p>
 <blockquote>
 <p>当p为奇数，x为负数<br>原函数为y=-x^p-(x+c)^p，求导，发现y’&lt;=0，所以单调递减<br>其他情况大力分类讨论  </p>
 </blockquote>
@@ -571,35 +571,19 @@ int main()
       <div class="toc" style="background: none;"></div>
       <section class="post-squares nextprev">
         
-          
-            <div class="post-nepre half previous">
-          
-            <a href="/2019/10/18/%E8%8E%AB%E6%AF%94%E4%B9%8C%E6%96%AF%E5%8F%8D%E6%BC%94%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" rel="prev">
-              <div class="background">
-                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/Tian-Xing/cdn@2.0/cartoon/莫比乌斯反演学习笔记.jpg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/Tian-Xing/cdn@2.0/cartoon/莫比乌斯反演学习笔记.jpg">
-              </div>
-              <span class="label">
-              Previous Post</span>
-              <div class="info">
-                <h3>
-                莫比乌斯反演学习笔记</h3>
-              </div>
-            </a>
-          </div>
-        
         
           
-            <div class="post-nepre half next">
+            <div class="post-nepre full next">
           
-            <a href="/2019/10/07/CF286C-Main-Sequence/" rel="next">
+            <a href="/2019/10/25/IOI2008Island/" rel="next">
               <div class="background">
-                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/Tian-Xing/cdn@2.0/cartoon/CF286C Main Sequence.jpg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/Tian-Xing/cdn@2.0/cartoon/CF286C Main Sequence.jpg">
+                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/Tian-Xing/cdn@2.0.3.1/cartoon/IOI2008Island.jpg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/Tian-Xing/cdn@2.0.3.1/cartoon/IOI2008Island.jpg">
               </div>
               <span class="label">
               Next Post</span>
               <div class="info">
                 <h3>
-                CF286C Main Sequence</h3>
+                IOI2008Island</h3>
               </div>
             </a>
           </div>
