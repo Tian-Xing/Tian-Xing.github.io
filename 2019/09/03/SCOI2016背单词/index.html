@@ -413,32 +413,71 @@
         <!--<div class="toc-entry-content">套嵌目录使用（主要为了支援评论）-->
         
         <div class="entry-content">
-          <h2 id="题意解释（本题最重要的部分）"><a href="#题意解释（本题最重要的部分）" class="headerlink" title="题意解释（本题最重要的部分）"></a>题意解释（本题最重要的部分）</h2><p><del>本篇题解过于详细，适合初学者食用</del>  </p>
-<p>给你一些字符串，让你对其进行排列，使得按以下规则花费最少(然而题意真的不清楚，很容易就让人以为字符串的顺序是排好的)  </p>
+          <p>给你一些字符串，让你对其进行排列，使得按以下规则花费最少(然而题意真的不清楚，很容易就让人以为字符串的顺序是排好的)  </p>
 <blockquote>
 <p>（$x$为字符串在自行排定的序列中的位置，当前字符串为$a$)<br>1.如果$a$存在后缀且a的后缀在a之后，花费$+=n^2$<br>2.如果$a$不存在后缀则花费$+=x$<br>3.设$y$为$a$之前离其最近的是$a$的后缀的字符串的位置，$a$存在后缀且$a$的后缀在$a$之前，则花费$+=x-y$   </p>
 </blockquote>
 <p>经过转化题意就比较显然了，但是我们如果仔细读题我们发现1，2规则其实完全没有必要。  </p>
 <p>规则1我们只要把$a$的后缀放在$a$之前就好了，这样肯定优于放在$a$的后面因为$x-y$的值最大只能是n-1显然优于$n^2$ </p>
 <p>规则2我们发现其实就是规则三中$y=0$的特殊情况，直接当规则3来处理就好  </p>
-<h2 id="大体思路"><a href="#大体思路" class="headerlink" title="大体思路"></a>大体思路</h2><p>看到后缀我们显然首先想到的是后缀数组，但是本蒟蒻太弱了不会怎么办？？？（<del>而且本蒟蒻也不知道本题能不能用后缀数组</del>）</p>
+<h1 id="大体思路"><a href="#大体思路" class="headerlink" title="大体思路"></a>大体思路</h1><p>看到后缀我们显然首先想到的是后缀数组，但是本蒟蒻太弱了不会怎么办？？？（<del>而且本蒟蒻也不知道本题能不能用后缀数组</del>）</p>
 <p>我们把字符串翻个顺序就会发现后缀其实就是前缀，所以我们可以翻转字符串，处理前缀。  </p>
 <p>而处理前缀我们首先就会想到trie字典树，座椅本题我们采用建立trie字典树的做法。  </p>
 <p>看懂题目的规则之后我们发现可以贪心的求解此题，只要让字符串的后缀与字符串之间所隔的字符串数目最小即可  </p>
 <p>所以第一步我们建立一颗trie树  </p>
-<p>第二步我们发现一个字符串有可能有很多后缀，所以我们需要判重，这里使用<strong>并查集</strong>  </p>
-<p>优于字符串的后缀与字符串之间存在有向的关系，便建立一张有向图。$x-&gt;y$代表$x$是$y$的后缀   </p>
+<p>第二步我们发现一个字符串有可能有很多后缀，所以我们需要判重，这里使用<strong>并查集</strong><br>+<br>优于字符串的后缀与字符串之间存在有向的关系，便建立一张有向图。$x-&gt;y$代表$x$是$y$的后缀   </p>
 <p>因为要保证字符串与字符串的后缀之间距离最小所以贪心的选取以x为根的最小的子树 </p>
 <p>（使用vector在算出每棵子树大小后进行排序即可）<br>最后按照规则求和</p>
-<h2 id="求和时使用dfs序的正确性的证明"><a href="#求和时使用dfs序的正确性的证明" class="headerlink" title="求和时使用dfs序的正确性的证明"></a>求和时使用dfs序的正确性的证明</h2><p>如果你有认真看我的或其他人的题解，你可以发现我们在最后求和的时候是按照dfs序的。那么为什么？（<del>我不会</del>）  </p>
-<p>所以我在夏令营时找了wqy神仙讲解。  </p>
-<p>考虑重新建树之后，i节点的子树中的所有节点的后缀都是i  </p>
-<p>如果同一深度上有不止一棵子树，那么我们先在一棵上取出一个叶子节点j，再取出一个根节点i，我们发现如果j&gt;i的话肯定不如i&lt;j优秀 </p>
-<p>因为调整之后i的子树上所有节点对花费的贡献-=子树大小，j对花费的贡献+1，所以我们可以看到j&gt;i的花费&lt;=i&gt;j的情况  </p>
-<p>最后我们经过所有的调整可以发现序列变成了dfs序  </p>
-<p>所以dfs序最优，而bfs序在有的时候可以满足这一性质，有的时候则不能，所以不是最优的（<del>只能拿部分分</del>）  </p>
-<p>还是感谢wqy，给了我很大的帮助，然而我不知道他的洛谷id  QAQAQ</p>
-<h2 id="CODE"><a href="#CODE" class="headerlink" title="CODE"></a>CODE</h2><pre><code class="cpp">#include &lt;iostream&gt;
+<h1 id="求和时使用dfs序的正确性的证明"><a href="#求和时使用dfs序的正确性的证明" class="headerlink" title="求和时使用dfs序的正确性的证明"></a>求和时使用dfs序的正确性的证明</h1><p>如果你有认真看我的或其他人的题解，你可以发现我们在最后求和的时候是按照dfs序的。那么为什么？（<del>我不会</del>）  </p>
+<p>所以我在夏令营时找了wqy神仙请教。  </p>
+<blockquote>
+<p>考虑重新建树之后，i节点的子树中的所有节点的后缀都是i    </p>
+</blockquote>
+<blockquote>
+<p>首先我们假设建树之后dfs序是最优的  </p>
+</blockquote>
+<blockquote>
+<p>这个时候如果同一个节点有多个子树</p>
+</blockquote>
+<blockquote>
+<p>我们从一个子树中选一个叶子节点j</p>
+</blockquote>
+<blockquote>
+<p>再从另一个子树大小比它大的子树中选一个根记为i</p>
+</blockquote>
+<blockquote>
+<p>那么现在的dfs序列里j应该是在i之前的(根据之前的规则</p>
+</blockquote>
+<blockquote>
+<p>我们尝试交换一下i和j</p>
+</blockquote>
+<blockquote>
+<p>那么我们会发现i的每个子树上的点都和i的距离增加了1</p>
+</blockquote>
+<blockquote>
+<p>而j和j的父亲节点的距离增加了1</p>
+</blockquote>
+<blockquote>
+<p>所以总代价增加了i的子树大小个代价</p>
+</blockquote>
+<blockquote>
+<p>所以对于一个子树大小小的子树的叶子节点</p>
+</blockquote>
+<blockquote>
+<p>要比另一个子树节点的根节点在序列中出现的早</p>
+</blockquote>
+<blockquote>
+<p>我们经过不断的调整</p>
+</blockquote>
+<blockquote>
+<p>发现最后他变成了一个dfs序</p>
+</blockquote>
+<blockquote>
+<p>Q.E.D</p>
+</blockquote>
+<p>感谢wqy，给了我很大的帮助<a href="https://www.luogu.org/space/show?uid=54214">wucstdio</a></p>
+<p><del>如果觉得证明还有问题联系我</del></p>
+<h1 id="CODE"><a href="#CODE" class="headerlink" title="CODE"></a>CODE</h1><pre><code class="cpp">#include &lt;iostream&gt;
 #include &lt;cstdio&gt;
 #include &lt;cstring&gt;
 #include &lt;vector&gt;
