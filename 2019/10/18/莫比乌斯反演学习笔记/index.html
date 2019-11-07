@@ -17,6 +17,16 @@
   <link rel="stylesheet" href="/css/insight.css" media="all">
   <link rel="stylesheet" href="/css/jquery.fancybox.min.css" media="all">
   <link rel="stylesheet" href="/css/zoom.css" media="all">
+  <style>
+    .emoji-coda {
+        display: inline-block !important;
+        position: relative;
+        width: 45px;
+        top: 2px;
+        margin: -3px 3px !important;
+        padding: 0;
+    }
+    </style>  
   <link rel="stylesheet" type="text/css" href="/css/sharejs.css">
   <!--gittak-->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/yremp/yremp-css@1.3/gitalk.css">
@@ -375,7 +385,7 @@
     <!-- 有配图默认渲染第一张 -->
     <div class="pattern-attachment-img lazyload" style="background-image: url(https://cdn.jsdelivr.net/gh/Tian-Xing/cdn@2.0/cartoon/莫比乌斯反演学习笔记.jpg);" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/Tian-Xing/cdn@2.0/cartoon/莫比乌斯反演学习笔记.jpg">
     </div>
-    <header class="pattern-header single-header">
+    <header class="pattern-header single-header" style="text-shadow: 0 0 7px #000,0 0 7px #000">
       <h1 class="entry-title">
       莫比乌斯反演学习笔记</h1>
       <p class="entry-census">
@@ -425,7 +435,9 @@
         <!--<div class="toc-entry-content">套嵌目录使用（主要为了支援评论）-->
         
         <div class="entry-content">
-          <p>$\phi \ast 1=id 的证明$  </p>
+          <p>咕咕咕~<img class="emoji-coda" src="https://cdn.jsdelivr.net/gh/TomoriCoda/hexo-tag-emojis-bycoda/emojis/xiaodianshi/haixiu.png"></p>
+<a id="more"></a>
+<p>$\phi \ast 1=id 的证明$  </p>
 <p>$\phi(p^k)\ast1$<br>$=\sum_{d|p^k}\phi(d)$<br>$=\sum_{i=0}^k\phi(p^i)$<br>$=\sum_{i=0}^k(p^i-p^{i-1})$<br>$=p^k$</p>
 <p>$由于\phi \ast 1是积性函数，所以\phi \ast 1(n)=\prod_{i=1}^k\phi \ast 1(pi)=\prod_{i=1}^kpi=id,所以\phi \ast 1=id$    </p>
 
@@ -527,6 +539,20 @@
     MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
   </script>
 
+<script>
+  function imgInit(){
+      var imgs=document.getElementsByClassName('entry-content').item(0).getElementsByTagName('img');
+      for(var i=0;i<imgs.length;++i){
+          var element = document.createElement("a"),record=imgs[i];
+          element.setAttribute("data-fancybox","gallery");
+          element.setAttribute("href",imgs[i].src);
+          imgs[i].parentNode.appendChild(element);
+          imgs[i].parentNode.removeChild(imgs[i]);
+          element.appendChild(record);
+      }
+  }
+  imgInit();
+  </script>
 
 
 

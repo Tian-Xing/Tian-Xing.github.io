@@ -17,6 +17,16 @@
   <link rel="stylesheet" href="/css/insight.css" media="all">
   <link rel="stylesheet" href="/css/jquery.fancybox.min.css" media="all">
   <link rel="stylesheet" href="/css/zoom.css" media="all">
+  <style>
+    .emoji-coda {
+        display: inline-block !important;
+        position: relative;
+        width: 45px;
+        top: 2px;
+        margin: -3px 3px !important;
+        padding: 0;
+    }
+    </style>  
   <link rel="stylesheet" type="text/css" href="/css/sharejs.css">
   <!--gittak-->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/yremp/yremp-css@1.3/gitalk.css">
@@ -375,7 +385,7 @@
     <!-- 有配图默认渲染第一张 -->
     <div class="pattern-attachment-img lazyload" style="background-image: url(https://cdn.jsdelivr.net/gh/Tian-Xing/cdn@2.0.1/cartoon/Tian-Xing见过的定理.jpg);" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/Tian-Xing/cdn@2.0.1/cartoon/Tian-Xing见过的定理.jpg">
     </div>
-    <header class="pattern-header single-header">
+    <header class="pattern-header single-header" style="text-shadow: 0 0 7px #000,0 0 7px #000">
       <h1 class="entry-title">
       Tian-Xing见过的定理</h1>
       <p class="entry-census">
@@ -404,7 +414,9 @@
         <!--<div class="toc-entry-content">套嵌目录使用（主要为了支援评论）-->
         
         <div class="entry-content">
-          <h2 id="n-的质因数分解定理："><a href="#n-的质因数分解定理：" class="headerlink" title="n!的质因数分解定理："></a>n!的质因数分解定理：</h2><p>定理：对于小于 n 的质数 p，n!中含有因子  p 的个数为：$ n/p+n/p^2+…+n/p^k $ （其中 k为$ p^k&lt;=n $的最大值）</p>
+          <p>经常忘记的数学定理~<img class="emoji-coda" src="https://cdn.jsdelivr.net/gh/TomoriCoda/hexo-tag-emojis-bycoda/emojis/2233/yumen.png"></p>
+<a id="more"></a>
+<h2 id="n-的质因数分解定理："><a href="#n-的质因数分解定理：" class="headerlink" title="n!的质因数分解定理："></a>n!的质因数分解定理：</h2><p>定理：对于小于 n 的质数 p，n!中含有因子  p 的个数为：$ n/p+n/p^2+…+n/p^k $ （其中 k为$ p^k&lt;=n $的最大值）</p>
 <h2 id="可重集元素的排列组合："><a href="#可重集元素的排列组合：" class="headerlink" title="可重集元素的排列组合："></a>可重集元素的排列组合：</h2><p>在 S 中任选 r 个元素的排列称为S的r排列$ |$多重组合数，当r = n时，有公式 $P(n; n1* a1, n2* a2, …, nk* ak) = n! / (n1! * n2! * …* nk!)  $<br>在 S 中任选 r 个元素的组合称为S的r组合，当r&lt;=任意ni时，有公式 $C(n; n1* a1, n2* a2, …, nk * ak) = C(k+r-1, r) $</p>
 <h2 id="约数和："><a href="#约数和：" class="headerlink" title="约数和："></a>约数和：</h2><p>对于一个数N，如果它的标准分解式为$N=p_1^{a_1}p_2^{a_2}p_3^{a_3}…p_n^{a_n} $    那么约数和<br>$ S= \prod _ {i=1}^ n \sum _ {j=0} ^{ a i} p_ i ^j $  （$ p_1 ,p_2……p_n $ 为质数）</p>
 <p>那么约数个数<br>$ S=\prod _ {i=1}  ^n (a_i +1)  $  </p>
@@ -492,6 +504,20 @@
     MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
   </script>
 
+<script>
+  function imgInit(){
+      var imgs=document.getElementsByClassName('entry-content').item(0).getElementsByTagName('img');
+      for(var i=0;i<imgs.length;++i){
+          var element = document.createElement("a"),record=imgs[i];
+          element.setAttribute("data-fancybox","gallery");
+          element.setAttribute("href",imgs[i].src);
+          imgs[i].parentNode.appendChild(element);
+          imgs[i].parentNode.removeChild(imgs[i]);
+          element.appendChild(record);
+      }
+  }
+  imgInit();
+  </script>
 
 
 

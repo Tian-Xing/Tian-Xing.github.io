@@ -17,6 +17,16 @@
   <link rel="stylesheet" href="/css/insight.css" media="all">
   <link rel="stylesheet" href="/css/jquery.fancybox.min.css" media="all">
   <link rel="stylesheet" href="/css/zoom.css" media="all">
+  <style>
+    .emoji-coda {
+        display: inline-block !important;
+        position: relative;
+        width: 45px;
+        top: 2px;
+        margin: -3px 3px !important;
+        padding: 0;
+    }
+    </style>  
   <link rel="stylesheet" type="text/css" href="/css/sharejs.css">
   <!--gittak-->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/yremp/yremp-css@1.3/gitalk.css">
@@ -375,7 +385,7 @@
     <!-- 有配图默认渲染第一张 -->
     <div class="pattern-attachment-img lazyload" style="background-image: url(https://cdn.jsdelivr.net/gh/Tian-Xing/cdn@2.0.3.1/cartoon/dp优化.jpg);" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/Tian-Xing/cdn@2.0.3.1/cartoon/dp优化.jpg">
     </div>
-    <header class="pattern-header single-header">
+    <header class="pattern-header single-header" style="text-shadow: 0 0 7px #000,0 0 7px #000">
       <h1 class="entry-title">
       DP优化</h1>
       <p class="entry-census">
@@ -425,7 +435,8 @@
         <!--<div class="toc-entry-content">套嵌目录使用（主要为了支援评论）-->
         
         <div class="entry-content">
-          <p>dp真是好玩呢，有好多有趣且优美的优化。   </p>
+          <p>dp真是好玩，有好多有趣且优美的优化。<img class="emoji-coda" src="https://cdn.jsdelivr.net/gh/TomoriCoda/hexo-tag-emojis-bycoda/emojis/xiaodianshi/duzui.png">   </p>
+<a id="more"></a>
 <h1 id="四边形不等式优化"><a href="#四边形不等式优化" class="headerlink" title="四边形不等式优化"></a>四边形不等式优化</h1><p>首先，什么是四边形不等式？<br>一句话来概括，就是：<strong>相交小于包含</strong><br>一维二维的满足四边形不等式的dp式子都具有决策单调性，都可以被优化<br><del>二维的太复杂了,我只写一维的好了</del><br>令$w(x,y)$是定义在整数集合上的二元函数，对于$a&lt;=b&lt;=c&lt;=d$,有$w(a,c)+w(b,d)&lt;=w(a,d)+w(b,c)$，则称此函数满足四边形不等式。<br>但是在dp的时候，这种式子不常出现，对于两个确定的i和j，如何确定该函数满足四边形不等式呢？<br>有如下的定理:对于$a&lt;b$，有$w(a,b+1)+w(a+1,b)&gt;=w(a+1,b+1)+w(a,b)$成立，则此函数满足四边形不等式。<br>证明如下：</p>
 <blockquote>
 <p>对于$a&lt;c$,有$w(a,c+1)+w(a+1,c)&gt;=w(a,c)+w(a+1,c+1)$<br>对于$a+1&lt;c$，有$w(a+1,c+1)+w(a+2,c)&gt;=w(a+1,c)+w(a+2,c+1)$<br>两式相加，得到$w(a,c+1)+w(a+2,c)&gt;=w(a,c)+w(a+2,c+1)$<br>以此类推，对任意的$a&lt;=b&lt;=c$，有$w(a,c+1)+w(b,c)&gt;=w(a,c)+w(b,c+1)$<br>同理，对于任意的$a&lt;=b&lt;=c&lt;=d$,有$w(a,d)+w(b,c)&gt;=w(a,c)+w(b,d)$<br>$Q.E.D.$  </p>
@@ -638,6 +649,20 @@ int main()
     MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
   </script>
 
+<script>
+  function imgInit(){
+      var imgs=document.getElementsByClassName('entry-content').item(0).getElementsByTagName('img');
+      for(var i=0;i<imgs.length;++i){
+          var element = document.createElement("a"),record=imgs[i];
+          element.setAttribute("data-fancybox","gallery");
+          element.setAttribute("href",imgs[i].src);
+          imgs[i].parentNode.appendChild(element);
+          imgs[i].parentNode.removeChild(imgs[i]);
+          element.appendChild(record);
+      }
+  }
+  imgInit();
+  </script>
 
 
 

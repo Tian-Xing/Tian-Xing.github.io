@@ -1155,14 +1155,6 @@ a:hover,a:active {
     border-radius:100%;
     position:absolute
 }
-.pattern-attachment-img {
-    background-repeat:no-repeat;
-    background-size:cover;
-    background-position:center center;
-    background-origin:border-box;
-    width:100%;
-    height:400px
-}
 .pattern-center header.pattern-header {
     position:absolute;
     top:45%;
@@ -1270,7 +1262,7 @@ a:hover,a:active {
     background-position:center center;
     background-origin:border-box;
     width:100%;
-    height:400px
+    height:500px
 }
 .pattern-center-sakura header.pattern-header {
     position:absolute;
@@ -1334,9 +1326,6 @@ a:hover,a:active {
 @media(max-width:860px) {
     .pattern-center-sakura header.single-header {
     padding:0 4%
-}
-.pattern-attachment-img {
-    height:280px
 }
 .pattern-center-sakura h1.cat-title,.pattern-center-sakura h1.entry-title,.single-center .single-header h1.entry-title {
     font-size:26px
@@ -4111,7 +4100,7 @@ li.feature-2 {
 }
 .header-info p {
     margin:0;
-    font-family:'Ubuntu',sans-serif;
+    font-family:'Segeo Script','Ink Free','Ubuntu',sans-serif;
     font-weight:700
 }
 .top-social {
@@ -5812,6 +5801,9 @@ button.botui-actions-buttons-button {
     padding-top:1px;
     text-size-adjust:100%;
     width:auto
+}
+.logolink .sakurasono,.logolink .shironeko{
+    font-family: 'Segoe Script','Ink Free';
 }
 .logolink a:hover .sakurasono {
     background-color:red;
@@ -7949,3 +7941,60 @@ div#gitalk-container blockquote:after{
     border-color: #cb3800;
 }
 .spfk-color8:before{border-right-color: #cb3800;}
+.hljs-ln-line:hover {
+    background-color: rgba(255, 255, 255, .1);
+}
+.hljs-ln-line.hljs-ln-n:hover{
+    background-color: rgba(0,0,0,0) !important;
+}
+.readmore{
+    text-align:left;
+    position:relative;
+    margin-top:10px;
+}
+.readmore a {
+    color:#08f;
+    text-decoration:underline dotted rgba(0,0,0,.1)
+}
+.readmore a:hover {
+    color:#05f !important;
+    text-decoration:underline #05f
+}
+.readmore p {
+    color:#5c5c5c;
+    line-height:27px;
+    margin: 0;
+}
+.readmore hr {
+    margin-top:40px;
+    margin-bottom:40px;
+    display:block;
+    border:0;
+    text-align:center;
+    background:none
+}
+.readmore hr:before {
+    display:inline-block;
+    margin-left:.6em;
+    color:rgba(0,0,0,.8);
+    position:relative;
+    top:-30px;
+    font-size:28px;
+    letter-spacing:.6em
+}
+.readmore img{transform:none!important;}
+.readmore blockquote {
+    margin-bottom: 10px;
+    padding:10px 15px;
+    border-radius: 1.3rem;
+}
+.readmore blockquote:before {
+    font-size:1.2rem;
+    top:-5px;
+    left:-2px;
+}
+.readmore blockquote:after {
+    font-size:1.2rem;
+    bottom:-15px;
+    right:0px;
+}
