@@ -2,16 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://tian-xing.github.io/2019/11/08/HAOI2008%25E5%259C%2586%25E4%25B8%258A%25E7%259A%2584%25E6%2595%25B4%25E7%2582%25B9/</loc>
+    <loc>https://tian-xing.github.io/links/index.html</loc>
     
-    <lastmod>2019-11-08T09:00:26.104Z</lastmod>
+    <lastmod>2019-11-09T12:11:33.061Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://tian-xing.github.io/links/index.html</loc>
+    <loc>https://tian-xing.github.io/2019/11/08/HAOI2008%25E5%259C%2586%25E4%25B8%258A%25E7%259A%2584%25E6%2595%25B4%25E7%2582%25B9/</loc>
     
-    <lastmod>2019-11-07T12:58:14.891Z</lastmod>
+    <lastmod>2019-11-08T09:00:26.104Z</lastmod>
     
   </url>
   
@@ -114,13 +114,6 @@
   </url>
   
   <url>
-    <loc>https://tian-xing.github.io/live2d/demo/demo1.html</loc>
-    
-    <lastmod>2019-09-27T16:29:46.000Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://tian-xing.github.io/live2d/demo/demo2.html</loc>
     
     <lastmod>2019-09-27T16:29:46.000Z</lastmod>
@@ -128,14 +121,21 @@
   </url>
   
   <url>
-    <loc>https://tian-xing.github.io/live2d/README.html</loc>
+    <loc>https://tian-xing.github.io/live2d/waifu-tips.json</loc>
     
     <lastmod>2019-09-27T16:29:46.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://tian-xing.github.io/live2d/waifu-tips.json</loc>
+    <loc>https://tian-xing.github.io/live2d/demo/demo1.html</loc>
+    
+    <lastmod>2019-09-27T16:29:46.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://tian-xing.github.io/live2d/README.html</loc>
     
     <lastmod>2019-09-27T16:29:46.000Z</lastmod>
     
