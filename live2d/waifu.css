@@ -19,7 +19,6 @@
 	line-height: 0;
 	transition: transform .3s ease-in-out;
 	transform: translateY(3px);
-	margin-bottom: -12px;
 }
 #waifu:hover {
 	transform: translateY(0);
