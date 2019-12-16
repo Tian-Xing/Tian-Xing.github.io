@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
   
-  <title itemprop="name">SCOI2016背单词 | Tian-Xing&#39;s blog</title>
+  <title itemprop="name">HAOI2008 硬币购物 | Tian-Xing&#39;s blog</title>
   
     <link rel="shortcut icon" href="/images/favicon.ico">
   
@@ -380,11 +380,11 @@
 
   <div class="pattern-center-sakura single-center">
     <!-- 有配图默认渲染第一张 -->
-    <div class="pattern-attachment-img lazyload" style="background-image: url(https://cdn.jsdelivr.net/gh/Tian-Xing/cdn@2.0/cartoon/SCOI2016背单词.jpg);" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/Tian-Xing/cdn@2.0/cartoon/SCOI2016背单词.jpg">
+    <div class="pattern-attachment-img lazyload" style="background-image: url(https://cdn.jsdelivr.net/gh/Tian-Xing/cdn@3.0.3/cartoon/HAOI2008%20硬币购物.jpg);" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/Tian-Xing/cdn@3.0.3/cartoon/HAOI2008%20硬币购物.jpg">
     </div>
     <header class="pattern-header single-header" style="text-shadow: 0 0 7px #000,0 0 7px #000">
       <h1 class="entry-title">
-      SCOI2016背单词</h1>
+      HAOI2008 硬币购物</h1>
       <p class="entry-census">
         <span>
           <a href="">
@@ -396,7 +396,7 @@
         </span>
         <span class="bull">
           <i class="fa fa-calendar" aria-hidden="true"></i></span>
-        2019-9-3
+        2019-12-8
         <span class="bull"></span>
         
           <span><i class="fa fa-archive"></i> 分类于  
@@ -411,7 +411,7 @@
           <div>
             <ul class="spfk-ul">
               &nbsp<i class="fa fa-tag" aria-hidden="true"></i>&nbsp&nbsp&nbsp&nbsp
-              <li class="spfk-li"><a href="/tags/DFS/" class="butterfly-tags">DFS</a></li><li class="spfk-li"><a href="/tags/并查集/" class="butterfly-tags">并查集</a></li><li class="spfk-li"><a href="/tags/TRIE/" class="butterfly-tags">TRIE</a></li>
+              <li class="spfk-li"><a href="/tags/DP/" class="butterfly-tags">DP</a></li><li class="spfk-li"><a href="/tags/容斥原理/" class="butterfly-tags">容斥原理</a></li>
             </ul>
           </div>
           <script>
@@ -439,169 +439,46 @@
         <!--<div class="toc-entry-content">套嵌目录使用（主要为了支援评论）-->
         
         <div class="entry-content">
-          <p>dfs序最优性的证明真是曲折呢<img class="emoji-coda" src="https://cdn.jsdelivr.net/gh/TomoriCoda/hexo-tag-emojis-bycoda/emojis/luotianyi/打尻.png"></p>
+          <p>很经典的一道容斥题<img class="emoji-coda" src="https://cdn.jsdelivr.net/gh/TomoriCoda/hexo-tag-emojis-bycoda/emojis/xiaodianshi/duzui.png"></p>
 <a id="more"></a>
-<p>给你一些字符串，让你对其进行排列，使得按以下规则花费最少(然而题意真的不清楚，很容易就让人以为字符串的顺序是排好的)  </p>
-<blockquote>
-<p>（$x$为字符串在自行排定的序列中的位置，当前字符串为$a$)<br>1.如果$a$存在后缀且a的后缀在a之后，花费$+=n^2$<br>2.如果$a$不存在后缀则花费$+=x$<br>3.设$y$为$a$之前离其最近的是$a$的后缀的字符串的位置，$a$存在后缀且$a$的后缀在$a$之前，则花费$+=x-y$   </p>
-</blockquote>
-<p>经过转化题意就比较显然了，但是我们如果仔细读题我们发现1，2规则其实完全没有必要。  </p>
-<p>规则1我们只要把$a$的后缀放在$a$之前就好了，这样肯定优于放在$a$的后面因为$x-y$的值最大只能是n-1显然优于$n^2$ </p>
-<p>规则2我们发现其实就是规则三中$y=0$的特殊情况，直接当规则3来处理就好  </p>
-<h1 id="大体思路"><a href="#大体思路" class="headerlink" title="大体思路"></a>大体思路</h1><p>看到后缀我们显然首先想到的是后缀数组，但是本蒟蒻太弱了不会怎么办？？？（<del>而且本蒟蒻也不知道本题能不能用后缀数组</del>）</p>
-<p>我们把字符串翻个顺序就会发现后缀其实就是前缀，所以我们可以翻转字符串，处理前缀。  </p>
-<p>而处理前缀我们首先就会想到trie字典树，座椅本题我们采用建立trie字典树的做法。  </p>
-<p>看懂题目的规则之后我们发现可以贪心的求解此题，只要让字符串的后缀与字符串之间所隔的字符串数目最小即可  </p>
-<p>所以第一步我们建立一颗trie树  </p>
-<p>第二步我们发现一个字符串有可能有很多后缀，所以我们需要判重，这里使用<strong>并查集</strong><br>+<br>优于字符串的后缀与字符串之间存在有向的关系，便建立一张有向图。$x-&gt;y$代表$x$是$y$的后缀   </p>
-<p>因为要保证字符串与字符串的后缀之间距离最小所以贪心的选取以x为根的最小的子树 </p>
-<p>（使用vector在算出每棵子树大小后进行排序即可）<br>最后按照规则求和</p>
-<h1 id="求和时使用dfs序的正确性的证明"><a href="#求和时使用dfs序的正确性的证明" class="headerlink" title="求和时使用dfs序的正确性的证明"></a>求和时使用dfs序的正确性的证明</h1><p>如果你有认真看我的或其他人的题解，你可以发现我们在最后求和的时候是按照dfs序的。那么为什么？（<del>我不会</del>）  </p>
-<p>所以我在夏令营时找了wqy神仙请教。  </p>
-<blockquote>
-<p>考虑建出一棵树之后，对于构建的任意合法的序列，都满足i的父亲一定在i之前出现，i的孩子们都一定在i之后出现  </p>
-</blockquote>
-<blockquote>
-<p>先尝试证明dfs序一定最优，对于以同一深度的节点为根的子树，在一颗中找一个叶子节点j,在另一颗里找一个根节点i(当前序列中j所在的子树的根在i之前出现  </p>
-</blockquote>
-<blockquote>
-<p>假设j&lt;i的时候代价最小，尝试将j放在i的后面，此时i&lt;j。那么我们发现如果j放在i与i的孩子们之间，i的孩子们和i的距离都会加1，所以总代价会增加，而j和j的父亲的距离一定也会增加，所以总代价也会增加  </p>
-</blockquote>
-<blockquote>
-<p>所以对于j所在子树的根比i在序列中出现的早的情况，j&lt;i的情况是最优的  </p>
-</blockquote>
-<blockquote>
-<p>那么每个子树形成了一段连续的区间，对于每个节点进行调整，最后我们发现形成了一个dfs序(有时别的序列也会和dfs序列一样优秀，但是此处证明的是dfs序列是最优解之一，不是唯一解</p>
-</blockquote>
-<blockquote>
-<p>接下来再证明先遍历子树小的更优秀。  </p>
-</blockquote>
-<blockquote>
-<p>WQY:<br>月明风清 21:28:04<br>因为你所有的size排序之后</p>
-</blockquote>
-<blockquote>
-<p>月明风清 21:28:17<br>第i个根节点的贡献是前面所有树的size之和<br>所以要排序</p>
-</blockquote>
-<blockquote>
-<p>综上所述，当我们进行dfs序且按子树大小排序时，求出代价即为最优。 </p>
-</blockquote>
-<blockquote>
-<p>Q.E.D</p>
-</blockquote>
-<p>感谢wqy，给了我很大的帮助<a href="https://www.luogu.org/space/show?uid=54214" target="_blank" rel="noopener">wucstdio</a></p>
+<h1 id="一个很经典的问题"><a href="#一个很经典的问题" class="headerlink" title="一个很经典的问题"></a>一个很经典的问题</h1><p>$$ \sum_{i=1}^n x_i=s(x是正整数)$$<br>这个式子的x的解有多少个?<br>显然这个可以用背包计算<br>用dp[k]表示能表示出的和为k的解的数量，正序枚举k<br>$$ dp[k]=dp[k]+dp[k-money[i]] $$<br>其中money[i]是硬币的面值</p>
+<p>接下来我们给他加上限制，规定第i个x的上界是c[i]<br>现在的x的解的总数可以用容斥原理进行计算  </p>
+<p>我们要求的东西是<br>$$ \left | \bigcap a_i\right | (a_i为第i个元素满足限制下的解集的集合)$$<br>也就等于<br>$$ \left | S \right |-\left | \bigcup {\overline a_i} \right |$$<br>首先我们计算出所有的可能的情况也就是全集s<br>接下来我们把不合法的情况减去<br>根据容斥定理显然有答案=总的情况-1个不满足条件的+2个不满足条件的-3个不满足条件的……<br>那么如果能很快的求出几个不合法集合的并集的话，这道题就可以很轻松的解决了  </p>
+<p>考虑几个不合法集合的并集也是一个等式的形式，不过有的x有下界，有的x没有下界<br>那么显然下界那部分对于每一个解都是存在的<br>那么我们可以把它减去<br>也就是这样的<br>$$\sum x_i=s-所有下界的和$$<br>这个玩意的所有解的数量我们已经用dp处理出来了，直接调用即可  </p>
+<p>所以最后只需要枚举子集，然后观察一下子集中元素的个数，套上一个容斥系数即可</p>
 <h1 id="CODE"><a href="#CODE" class="headerlink" title="CODE"></a>CODE</h1><pre><code class="cpp">#include &lt;iostream&gt;
 #include &lt;cstdio&gt;
 #include &lt;cstring&gt;
-#include &lt;vector&gt;
-#include &lt;algorithm&gt;
 using namespace std;
-#define N 510050
-#define M 100050
 #define ll long long
-ll ans=0;
-char x[N];
-int n,cnt,bo[N],tot=1,trie[5000050][27],fa[N],id[N],son[N],num;
-vector&lt;int&gt;tu[N];
-int read()
-{
-    int s=0,p=1;
-    char ch=getchar();
-    while(ch&lt;&#39;0&#39; || ch&gt;&#39;9&#39;)
-    {
-        if(ch==&#39;-&#39;)p=-1;
-        ch=getchar();
-    }
-    while(ch&gt;=&#39;0&#39; &amp;&amp; ch&lt;=&#39;9&#39;)
-    {
-        s=(s&lt;&lt;1)+(s&lt;&lt;3)+(ch^48);
-        ch=getchar();
-    }
-    return s*p;
-}
-int find(int x)
-{
-    if(fa[x]==x)return fa[x];
-    else return fa[x]=find(fa[x]);
-}
-void insert(char *s,int bh)
-{
-    int l=strlen(s);
-    int u=1;
-    for(int i=l-1;i&gt;=0;i--)
-    {
-        int c=s[i]-&#39;a&#39;;
-        if(!trie[u][c])trie[u][c]=++tot;
-        u=trie[u][c];
-    }
-    bo[u]=bh;
-}
-void make(int x)
-{
-    for(int i=0;i&lt;26;i++)
-    {
-        int v=trie[x][i];
-        if(v)
-        {
-            if(!bo[v])
-            {
-                fa[v]=find(x);
-            }
-            else
-            {
-                tu[bo[find(x)]].push_back(bo[v]);
-            }
-            make(v);
-        }
-    }
-}
-int cmp(int x,int y)
-{
-    return son[x]&lt;son[y];
-}
-void sonsum(int x)
-{
-    son[x]=1;
-    for(vector&lt;int&gt; :: iterator it=tu[x].begin();it!=tu[x].end();it++)
-    {
-        int v=*it;
-        sonsum(v);
-        son[x]+=son[v];
-    }
-    sort(tu[x].begin(),tu[x].end(),cmp);
-}
-void dfs(int x)
-{
-    id[x]=num++;
-    for(vector&lt;int&gt; :: iterator it=tu[x].begin();it!=tu[x].end();it++)
-    {
-        int v=*it;
-        ans+=num-id[x];
-        dfs(v);
-    }
-}
-void dfss(int x)
-{
-    for(vector&lt;int&gt; :: iterator it=tu[x].begin();it!=tu[x].end();it++)
-    {
-        int v=*it;
-        cout&lt;&lt;v&lt;&lt;endl;
-        dfss(v);
-    }
-}
+ll mz[5],dp[2000050],c[5];
+ll ans,s;
 int main()
 {
-    n=read();
-    for(int i=1;i&lt;=n;i++)
+    for(int i=1;i&lt;=4;i++)scanf(&quot;%d&quot;,&amp;mz[i]);
+    dp[0]=1;
+    for(int i=1;i&lt;=4;i++)
+        for(int k=mz[i];k&lt;=100000;k++)
+            dp[k]+=dp[k-mz[i]];
+    int t;
+    scanf(&quot;%d&quot;,&amp;t);
+    while(t--)
     {
-        scanf(&quot;%s&quot;,x);
-        insert(x,i);
+        for(int i=1;i&lt;=4;i++)scanf(&quot;%d&quot;,&amp;c[i]);    
+        scanf(&quot;%lld&quot;,&amp;s);
+        ans=dp[s];
+        for(int i=1;i&lt;(1&lt;&lt;4);i++)
+        {
+            ll tmp=0,js=0;
+            for(int j=1;j&lt;=4;j++)if(1&lt;&lt;(j-1)&amp;i)js++,tmp+=(c[j]+1)*mz[j];
+            if(tmp&gt;s)continue;
+            if(js%2==0)ans+=dp[s-tmp];
+            else ans-=dp[s-tmp];
+        }
+        printf(&quot;%lld\n&quot;,ans);
     }
-    for(int i=1;i&lt;=tot;i++)fa[i]=i;
-    make(1); sonsum(0);dfs(0);
-    printf(&quot;%lld&quot;,ans);
     return 0;
-}</code></pre>
-<p>并查集去重的思路来源于<a href="https://www.luogu.org/blog/communist/solution-p3294" target="_blank" rel="noopener">此篇blog</a></p>
+} </code></pre>
 
         </div>
         <!-- .entry-content -->
@@ -633,15 +510,15 @@ int main()
           
             <div class="post-nepre half previous">
           
-            <a href="/2019/09/08/%E6%B4%9B%E8%B0%B7P2783%E6%9C%89%E6%9C%BA%E5%8C%96%E5%AD%A6%E4%B9%8B%E7%A5%9E%E5%81%B6%E5%B0%94%E4%BC%9A%E4%BD%9C%E5%BC%8A/" rel="prev">
+            <a href="/2019/12/15/AtCoder2062%20~K%20Perm%20Counting/" rel="prev">
               <div class="background">
-                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/Tian-Xing/cdn@2.0/cartoon/洛谷P2783有机化学之神偶尔会作弊.jpg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/Tian-Xing/cdn@2.0/cartoon/洛谷P2783有机化学之神偶尔会作弊.jpg">
+                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/Tian-Xing/cdn@3.0.3/cartoon/AtCoder2062%20~K%20Perm%20Counting题解.jpg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/Tian-Xing/cdn@3.0.3/cartoon/AtCoder2062%20~K%20Perm%20Counting题解.jpg">
               </div>
               <span class="label">
               Previous Post</span>
               <div class="info">
                 <h3>
-                洛谷P2783有机化学之神偶尔会作弊</h3>
+                AtCoder2062 ~K Perm Counting</h3>
               </div>
             </a>
           </div>
@@ -650,15 +527,15 @@ int main()
           
             <div class="post-nepre half next">
           
-            <a href="/2019/09/02/%E6%B4%9B%E8%B0%B7P1020%E5%AF%BC%E5%BC%B9%E6%8B%A6%E6%88%AA/" rel="next">
+            <a href="/2019/11/08/HAOI2008%20%E5%9C%86%E4%B8%8A%E7%9A%84%E6%95%B4%E7%82%B9/" rel="next">
               <div class="background">
-                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/Tian-Xing/cdn@2.1.2/cartoon/洛谷P1020导弹拦截.jpg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/Tian-Xing/cdn@2.1.2/cartoon/洛谷P1020导弹拦截.jpg">
+                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/Tian-Xing/cdn@3.0.3/cartoon/HAOI2008%20圆上的整点.jpg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/Tian-Xing/cdn@3.0.3/cartoon/HAOI2008%20圆上的整点.jpg">
               </div>
               <span class="label">
               Next Post</span>
               <div class="info">
                 <h3>
-                洛谷P1020导弹拦截</h3>
+                HAOI2008 圆上的整点</h3>
               </div>
             </a>
           </div>
