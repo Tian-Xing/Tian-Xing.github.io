@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
   
-  <title itemprop="name">标签: 栈 | Tian-Xing&#39;s blog</title>
+  <title itemprop="name">AtCoder2062~K Perm Counting | Tian-Xing&#39;s blog</title>
   
     <link rel="shortcut icon" href="/images/favicon.ico">
   
@@ -374,65 +374,234 @@
   </div>
 </header>
 
-      
+      <link rel="stylesheet" type="text/css" href="/css/sharejs.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css">
 <div class="pattern-center-blank"></div>
-<div class="pattern-center-sakura ">
-  <div class="pattern-attachment-img">
-    <img src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://api.ixiaowai.cn/api/api.php" class="lazyload" onerror="imgError(this,3)" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;">
+
+  <div class="pattern-center-sakura single-center">
+    <!-- 有配图默认渲染第一张 -->
+    <div class="pattern-attachment-img lazyload" style="background-image: url(https://cdn.jsdelivr.net/gh/Tian-Xing/cdn@3.0.1/cartoon/AtCoder2062~K%20Perm%20Counting题解.jpg);" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/Tian-Xing/cdn@3.0.1/cartoon/AtCoder2062~K%20Perm%20Counting题解.jpg">
+    </div>
+    <header class="pattern-header single-header" style="text-shadow: 0 0 7px #000,0 0 7px #000">
+      <h1 class="entry-title">
+      AtCoder2062~K Perm Counting</h1>
+      <p class="entry-census">
+        <span>
+          <a href="">
+            <img src="https://cdn.jsdelivr.net/gh/Tian-Xing/cdn@1.0/avatar/Tian-Xing.jpg">
+          </a>
+        </span>
+        <span>
+          <a href="">Tian-Xing</a>
+        </span>
+        <span class="bull">
+          <i class="fa fa-calendar" aria-hidden="true"></i></span>
+        2019-12-15
+        <span class="bull"></span>
+        
+          <span><i class="fa fa-archive"></i> 分类于  
+            <span class="article-category"><a href="/categories/%E9%A2%98%E8%A7%A3/" > 题解</a></span>
+          
+        </span>
+        <span class="bull">
+          <i class="fa fa-eye" aria-hidden="true"></i></span>
+      <span id="busuanzi_value_page_pv"></span>次阅读</p>      
+      
+        
+          <div>
+            <ul class="spfk-ul">
+              &nbsp<i class="fa fa-tag" aria-hidden="true"></i>&nbsp&nbsp&nbsp&nbsp
+              <li class="spfk-li"><a href="/tags/DP/" class="butterfly-tags">DP</a></li><li class="spfk-li"><a href="/tags/容斥原理/" class="butterfly-tags">容斥原理</a></li>
+            </ul>
+          </div>
+          <script>
+              function colorInit(c,num){for(var i=1;i<=num;++i)c.push(i+'');}
+              function paintTags(){
+                  var colorNumber=8,tagColors=[],tags=document.getElementsByClassName('butterfly-tags');
+                  for(var i = 0 ; i < tags.length ; ++i){
+                      if(!tagColors.length)colorInit(tagColors,colorNumber);
+                      var j=Math.floor(Math.random()*tagColors.length);
+                      tags[i].classList.add("spfk-color"+tagColors[j]);
+                      tagColors.splice(j,1);
+                  }
+              }
+              paintTags()
+          </script>
+      
+    </header>
   </div>
-  <header class="pattern-header ">
-    <h1 class="cat-title">栈</h1>
-  </header>
-</div>
+
 <div id="content" class="site-content">
   <div id="primary" class="content-area">
     <main id="main" class="site-main" role="main">
-      
-  <!-- 首页默认取最最新文章集 -->
-  
-    <article class="post post-list" itemscope="" itemtype="http://schema.org/BlogPosting">
-  <div class="post-entry">
-    <div class="feature">
-      <a href="/2019/10/07/CF286CMain-Sequence/">
-        <div class="overlay">
-          <i class="iconfont icon-text">
-          </i>
+      <article id="post-1" class="post-1 post type-post status-publish format-standard has-post-thumbnail hentry category-uncategorized">
+        <!--<div class="toc"></div>-->
+        <!--<div class="toc-entry-content">套嵌目录使用（主要为了支援评论）-->
+        
+        <div class="entry-content">
+          <p>思路很是巧妙呢<img class="emoji-coda" src="https://cdn.jsdelivr.net/gh/TomoriCoda/hexo-tag-emojis-bycoda/emojis/xiaodianshi/zan.png"></p>
+<a id="more"></a>
+<p>最开始不难想到这题应该是用容斥去做<br>设g[i]表示至少i个位置是冲突的方案数<br>那么答案就是<br>$$<br>\sum_{i=0}^n(-1)^i g[i] (n-i)!<br>$$<br>首先可以发现一个显然的性质，每个排列里的点最多只有两个点和它冲突(根据绝对值的性质<br>那么一个很妙的方法就是我们把和一个点冲突的点连边<br>这样就形成了一张图，这张图有一些很妙的性质<br>首先这是一张二分图，它的两个子集里都有n个节点<br>我们尝试画出这个二分图<br>以样例”3 1”为例</p>
+<blockquote>
+<p>$(A_1,B_2)$<br>$(A_2,B_1)$<br>$(A_2,B_3)$<br>$(A_3,B_2)$  </p>
+</blockquote>
+<p>我们发现这张二分图里的一些边连接在一起就形成了一些链，现在我们把这些链提出来<br>下面这个样子</p>
+<blockquote>
+<p>$A_1-&gt;B_2-&gt;A_3$<br>$B_1-&gt;A_2-&gt;B_3$  </p>
+</blockquote>
+<p>接着很显然可以看出这些链是互不影响的且每条链上只能选择一条边<br>那么我们可以对图进行重构,将它按%k的余数重新排列(因为只在%k相同的情况下存在连边<br>这样的话记录边就只用记录这个点和上个点有没有连边就行<br>接着开始dp<br>重构图之后一共有n*2个点<br>设dp[i][j][0]表示前i个点,选择了j条边,i和i-1有连边的方案数<br>dp[i][j][1]表示前i个点,选择了j条边,i和i-1没有连边的方案数<br>接着可以推出dp式子</p>
+<blockquote>
+<p>dp[i][j][0]=dp[i-1][j-1][0]+dp[i-1][j-1][1]<br>dp[i][j][1]=dp[i-1][j-1][0] 如果i和i-1有连边  </p>
+</blockquote>
+<p>注意不能选择相邻的两条边因为同一个位置只能有一个数值<br>那么g[i]=dp[n*2][i][0]+dp[n*2][i][1]<br>最后容斥即可<img class="emoji-coda" src="https://cdn.jsdelivr.net/gh/TomoriCoda/hexo-tag-emojis-bycoda/emojis/2233/ye.png"></p>
+<h1 id="CODE"><a href="#CODE" class="headerlink" title="CODE"></a>CODE</h1><pre><code class="cpp">#include &lt;iostream&gt;
+#include &lt;cstdio&gt; 
+#include &lt;cstring&gt;
+using namespace std;
+#define MOD 924844033
+#define ll long long
+#define N 2050
+ll dp[N&lt;&lt;1][N][2],n,k,link[2*N],tot,sum,jc[N];
+int main()
+{
+    scanf(&quot;%lld%lld&quot;,&amp;n,&amp;k);
+    jc[0]=1;dp[0][0][0]=1;
+    for(int i=1;i&lt;=n;i++)jc[i]=jc[i-1]*i%MOD; 
+    for(int i=1;i&lt;=k;i++)
+        for(int t=1;t&lt;=2;t++)
+            for(int j=i;j&lt;=n;j+=k)
+                j!=i?link[++tot]=1:++tot;
+    for(int i=1;i&lt;=tot;i++)
+        for(int j=0;j&lt;=n;j++)
+        {
+            dp[i][j][0]=(dp[i-1][j][1]+dp[i-1][j][0])%MOD;
+            if(link[i])dp[i][j][1]=dp[i-1][j-1][0];
+         }
+    for(int i=0;i&lt;=n;i++)
+    {
+        ll tmp=(dp[n&lt;&lt;1][i][0]+dp[n&lt;&lt;1][i][1])%MOD;
+        tmp=tmp*jc[n-i]%MOD;
+        i%2==1?sum=((sum-tmp)%MOD+MOD)%MOD:sum=(sum+tmp)%MOD;
+    }
+    printf(&quot;%lld&quot;,sum);
+    return 0;
+}</code></pre>
+
         </div>
-        <img width="150" height="150" src="https://cdn.jsdelivr.net/gh/Tian-Xing/cdn@3.0.2/cartoon/CF286CMain%20Sequence.jpg" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="" >
-      </a>
-    </div>
-    <h1 class="entry-title">
-    <a href="/2019/10/07/CF286CMain-Sequence/">
-    CF286CMain Sequence</a>
-    </h1>
-    <div class="p-time">
-      <i class="iconfont icon-time">
-      </i>
-    2019-10-7</div>
-    <p>
-    </p>
-    <footer class="entry-footer">
-      <div class="post-more">
-        <a href="/2019/10/07/CF286CMain-Sequence/">
-          <i class="iconfont icon-caidan">
-          </i>
-        </a>
+        <!-- .entry-content -->
+        <!--
+        <div class="single-reward">
+          <div class="reward-open">赏<div class="reward-main">
+              <ul class="reward-row">
+                <li class="alipay-code"><img src="/img/custom/donate/AliPayQR.jpg"></li>
+                <li class="wechat-code"><img src="/img/custom/donate/WeChanQR.jpg"></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div style="text-align:center; width: 100%" class="social-share share-mobile" data-disabled="diandian, tencent"></div>
+        <footer class="post-footer">
+          <div class="post-lincenses"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="nofollow"><i class="fa fa-creative-commons" aria-hidden="true"></i> 知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a></div>
+          <div class="post-tags">
+          </div>
+          <div class="post-share">
+            <div class="social-share sharehidden share-component"></div>
+            <i class="iconfont show-share icon-forward"></i>
+          </div>
+        </footer>--><!-- .entry-footer -->
+      </article>
+      <!-- #post-## -->
+      <div class="toc" style="background: none;"></div>
+      <section class="post-squares nextprev">
+        
+          
+            <div class="post-nepre half previous">
+          
+            <a href="/2019/12/15/%E6%B4%9B%E8%B0%B7P2435%E6%9F%93%E8%89%B2/" rel="prev">
+              <div class="background">
+                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/Tian-Xing/cdn@3.0.2/cartoon/洛谷P2435染色.jpg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/Tian-Xing/cdn@3.0.2/cartoon/洛谷P2435染色.jpg">
+              </div>
+              <span class="label">
+              Previous Post</span>
+              <div class="info">
+                <h3>
+                洛谷P2435染色</h3>
+              </div>
+            </a>
+          </div>
+        
+        
+          
+            <div class="post-nepre half next">
+          
+            <a href="/2019/12/08/HAOI2008%E7%A1%AC%E5%B8%81%E8%B4%AD%E7%89%A9/" rel="next">
+              <div class="background">
+                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/Tian-Xing/cdn@3.0/cartoon/HAOI2008硬币购物.jpg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/Tian-Xing/cdn@3.0/cartoon/HAOI2008硬币购物.jpg">
+              </div>
+              <span class="label">
+              Next Post</span>
+              <div class="info">
+                <h3>
+                HAOI2008硬币购物</h3>
+              </div>
+            </a>
+          </div>
+        
+      </section>
+      
+  <script src="https://cdn.jsdelivr.net/gh/yremp/yremp-js@1.1/gitalk.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/yremp/yremp-css@1.3/gitalk.css">
+  <div id="gitalk-container"></div>
+  <script type="text/javascript">
+      var gitalk = new Gitalk({
+          clientID: 'f9b6c818d9058fec229f',
+          clientSecret: 'fb95c98ddf06431c598a0a7c5e27d77a699dc1b1',
+          id: decodeURI(window.location.pathname),
+          repo: 'Tian-Xing.github.io',
+          owner: 'Tian-Xing',
+          admin: 'Tian-Xing'
+      })
+      gitalk.render('gitalk-container')
+    </script>
+
+      <section class="author-profile">
+        <div class="info" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+          <a href="/about/" class="profile gravatar"><img src="https://cdn.jsdelivr.net/gh/Tian-Xing/cdn@1.0/avatar/Tian-Xing.jpg" itemprop="image" alt="blog" height="70" width="70"></a>
+          <div class="meta">
+            <span class="title">Author</span>
+            <h3 itemprop="name">
+            <a href="https://Tian-Xing.github.io" itemprop="url" rel="author">Tian-Xing's blog</a>
+            </h3>
+          </div>
+        </div>
+        <p><i class="iconfont icon-write"></i>爱我所爱，行我所行，听从我心，无问西东。</p>
+      </section>
+      </div><!-- #primary -->
       </div>
-    </footer>
-  </div>
-  <br>
-</article>
-
-  
 
 
-      <div class="clearer">
-      </div>
-    </main>
-    <!--  -->
-    
-  </div>
-</div>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/latest.js?config=TeX-MML-AM_CHTML"></script>
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+  </script>
+
+<script>
+  function imgInit(){
+      var imgs=document.getElementsByClassName('entry-content').item(0).getElementsByTagName('img');
+      for(var i=0;i<imgs.length;++i){
+          var element = document.createElement("a"),record=imgs[i];
+          element.setAttribute("data-fancybox","gallery");
+          element.setAttribute("href",imgs[i].src);
+          imgs[i].parentNode.appendChild(element);
+          imgs[i].parentNode.removeChild(imgs[i]);
+          element.appendChild(record);
+      }
+  }
+  imgInit();
+  </script>
+
+
+
     </div>    
     <div class="openNav no-select" style="height: 50px;">
       <div class="iconflat no-select" style="width: 50px; height: 50px;">
