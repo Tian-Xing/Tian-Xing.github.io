@@ -441,10 +441,10 @@
         <div class="entry-content">
           <p>学了好久忘光了，来补一发轮廓线DP<img class="emoji-coda" src="https://cdn.jsdelivr.net/gh/TomoriCoda/hexo-tag-emojis-bycoda/emojis/quyin/die.png"></p>
 <a id="more"></a>
-<p>这道题有很显然的状压做法，然而直接状压是会T飞的，最多只能拿到80PTS </p>
+<p>这道题有很显然的状压做法，然而直接状压是会$T$飞的，最多只能拿到$80PTS$ </p>
 <p>所以这时我们要引出一个新的状压技巧—轮廓线状压  </p>
 <p>所谓轮廓线状压，顾名思义就是状压一条线  </p>
-<p>如下图所示，假设我们要更新绿色格点对答案的影响，我们之前状压的就是红色的这条线，接下来我们根据题目的具体规则进行刷表转移，枚举这个绿色格点的所有可能取值，然后更新到蓝色格点即可<br><img src="https://cdn.jsdelivr.net/gh/Tian-Xing/cdn@3.0.3/picture/%E6%B4%9B%E8%B0%B7P2435%20%E6%9F%93%E8%89%B2%20%E8%BD%AE%E5%BB%93%E7%BA%BFDP.png" alt=""><br>需要注意的是每个格点只能更新到与他相邻的下一个格点，那么我们每次只能向一个状态更新，再算上这次使用的状态一共就是两个状态，所以这里可以用滚动数组优化掉一维DP状态  </p>
+<p>如下图所示，假设我们要更新绿色格点对答案的影响，我们之前状压的就是红色的这条线，接下来我们根据题目的具体规则进行刷表转移，枚举这个绿色格点的所有可能取值，然后更新到蓝色格点即可<br><img src="https://cdn.jsdelivr.net/gh/Tian-Xing/cdn@3.0.3/picture/%E6%B4%9B%E8%B0%B7P2435%20%E6%9F%93%E8%89%B2%20%E8%BD%AE%E5%BB%93%E7%BA%BFDP.png" alt=""><br>需要注意的是每个格点只能更新到与他相邻的下一个格点，那么我们每次只能向一个状态更新，再算上这次使用的状态一共就是两个状态，所以这里可以用滚动数组优化掉一维$DP$状态  </p>
 <p>具体的对于这个题而言我们枚举当前格点的颜色如果和它相邻的格点和它颜色不一样那么就可以把它的影响加入答案并且更新到下一个格点的状态</p>
 <pre><code class="cpp">#include &lt;iostream&gt;
 #include &lt;cstdio&gt;

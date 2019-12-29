@@ -420,10 +420,30 @@
         <div class="entry-content">
           <p>经常忘记的数学定理~<img class="emoji-coda" src="https://cdn.jsdelivr.net/gh/TomoriCoda/hexo-tag-emojis-bycoda/emojis/2233/yumen.png"></p>
 <a id="more"></a>
-<h2 id="n-的质因数分解定理："><a href="#n-的质因数分解定理：" class="headerlink" title="n!的质因数分解定理："></a>n!的质因数分解定理：</h2><p>定理：对于小于$n$的质数$p$,$n!$中含有因子$p$的个数为:<br>$$n/p+n/p^2+…+n/p^k(其中 k为p^k&lt;=n的最大值)$$</p>
-<h2 id="约数和："><a href="#约数和：" class="headerlink" title="约数和："></a>约数和：</h2><p>对于一个数$N$，如果它的标准分解式为<br>$$N=p_1^{a_1}p_2^{a_2}p_3^{a_3}…p_n^{a_n}$$<br>那么约数和<br>$$S=\prod_{i=1}^n\sum_{j=0}^{a_i}p_i^j(p_1,p_2……p_n为质数)$$<br>那么约数个数<br>$$S=\prod_{i=1}^n(a_i+1)$$  </p>
-<h2 id="威尔逊定理"><a href="#威尔逊定理" class="headerlink" title="威尔逊定理"></a>威尔逊定理</h2><p>$$(p-1)! \equiv p-1(\mod p)$$<br>考虑如果这$p-1$个数中如果一个数是一个数的逆元那么这两个数都会被消去，留下的都是逆元是本身的数<br>若一个数的逆元等于本身<br>则有$x\equiv x^{-1}(\mod p)$<br>那么$x^2-1\equiv 0(\mod p)$<br>所以$p|(x+1)$或者$p|(x-1)$<br>所以$p-1$的逆元是他本身 </p>
-<h2 id="不明定理-技巧？"><a href="#不明定理-技巧？" class="headerlink" title="不明定理(技巧？)"></a>不明定理(技巧？)</h2><p>$$1.(\sum_{i=1}^n i)^2=\sum_{i=1}^n i^3$$</p>
+<h2 id="n-的质因数分解定理"><a href="#n-的质因数分解定理" class="headerlink" title="$n!$的质因数分解定理"></a>$n!$的质因数分解定理</h2><p>定理:对于小于$n$的质数$p$，$n!$中含有因子$p$的个数为:    </p>
+<p>$$n/p+n/p^2+…+n/p^k(其中k为p^k&lt;=n的最大值)$$  </p>
+<h2 id="约数和"><a href="#约数和" class="headerlink" title="约数和"></a>约数和</h2><p>对于一个数$N$，如果它的标准分解式为    </p>
+<p>$$N=p_1^{a_1}p_2^{a_2}p_3^{a_3}…p_n^{a_n}$$   </p>
+<p>那么约数和为    </p>
+<p>$$S=\prod_{i=1}^n\sum_{j=0}^{a_i}p_i^j(p_1,p_2……p_n为质数)$$  </p>
+<p>那么约数个数为    </p>
+<p>$$S=\prod_{i=1}^n(a_i+1)$$    </p>
+<h2 id="威尔逊定理"><a href="#威尔逊定理" class="headerlink" title="威尔逊定理"></a>威尔逊定理</h2><p>当且仅当$p$是素数时  </p>
+<p>$$(p-1)! \equiv p-1(\mod p)$$   </p>
+<p>考虑如果这$p-1$个数中如果一个数是一个数的逆元那么这两个数都会被消去，留下的都是逆元是本身的数。  </p>
+<p>若一个数的逆元等于本身，则有  </p>
+<p>$$x \equiv x^{-1} ( \mod p)$$  </p>
+<p>那么两边平方，移项，则有  </p>
+<p>$$x^2 \equiv 1 ( \mod p)$$</p>
+<p>$$x^2-1\equiv 0 ( \mod p)$$  </p>
+<p>$$(x+1)(x-1) \equiv 0 ( \mod p)$$  </p>
+<p>所以$p|(x+1)(x-1)$，由于$p$是质数，所以$x$只能是$1$或$p-1$。 </p>
+<p>$$Q.E.D.$$</p>
+<h2 id="判断两个大数相等"><a href="#判断两个大数相等" class="headerlink" title="判断两个大数相等"></a>判断两个大数相等</h2><p>选取适当个大质数，如果两个数$mod$选取的所有的质数都相等则两个大数有很大概率相等。</p>
+<h2 id="勾股数组"><a href="#勾股数组" class="headerlink" title="勾股数组"></a>勾股数组</h2><p>勾股方程即形如$a^2+b^2=c^2$的方程。  </p>
+<p>勾股方程的所有正整数解都可以被表示为下图的形式</p>
+<p>$$a=\frac{d(u^2-v^2)}{2},b=duv,c=\frac{d(u^2+v^2)}{2}(gcd(u,v)=1)$$  </p>
+<h2 id="不明定理"><a href="#不明定理" class="headerlink" title="不明定理"></a>不明定理</h2><p>$$(\sum_{i=1}^n i)^2=\sum_{i=1}^n i^3$$  </p>
 
         </div>
         <!-- .entry-content -->

@@ -441,10 +441,31 @@
         <div class="entry-content">
           <p>莫比乌斯反演博大精深~<img class="emoji-coda" src="https://cdn.jsdelivr.net/gh/TomoriCoda/hexo-tag-emojis-bycoda/emojis/xiaodianshi/haixiu.png"></p>
 <a id="more"></a>
-<h1 id="经典莫比乌斯反演"><a href="#经典莫比乌斯反演" class="headerlink" title="经典莫比乌斯反演"></a>经典莫比乌斯反演</h1><p>$$\phi \ast 1=id 的证明$$</p>
-<p>$$\phi(p^k)\ast1$$<br>$$=\sum_{d|p^k}\phi(d)$$<br>$$=\sum_{i=0}^k\phi(p^i)$$<br>$$=\sum_{i=0}^k(p^i-p^{i-1})$$<br>$$=p^k$$<br>$$Q.E.D.$$</p>
-<p>$$由于\phi \ast 1是积性函数，所以\phi \ast 1(n)=\prod_{i=1}^k\phi \ast 1(pi)=\prod_{i=1}^kpi=id,所以\phi \ast 1=id$$    </p>
-<h1 id="子集反演"><a href="#子集反演" class="headerlink" title="子集反演"></a>子集反演</h1><p>$$经典的子集反演$$<br>$$对于两个函数F(S)和G(S)$$<br>$$F(S)=\sum_{T\subseteq S}G(T)$$<br>$$那么我们可以得出$$<br>$$G(S)=\sum_{T\subseteq S}(-1)^{|S|-|T|}F(T)$$<br>$$G(S)=\sum_{T\subseteq S}(-1)^{|S|-|T|}F(T)$$<br>$$=\sum_{T\subseteq S}(-1)^{|S|-|T|}\sum_{U\subseteq T}G(U)$$<br>$$=\sum_{U\subseteq S}G(U)\sum_{U\subseteq T \subseteq S}(-1)^{|S|-|T|}$$<br>$$通过枚举|T|-|U|的元素个数即|T|=|U|+i$$<br>$$=\sum_{U\subseteq S}G(U)\sum_{i=0}^{|S|-|U|}\binom{|S|-|U|}{i}(-1)^{|S|-|U|-i}$$<br>$$然后喜闻乐见的发现了一个二项式定理$$<br>$$=\sum_{U\subseteq S}G(U)0^{|S|-|U|}$$<br>$$当|S|=|U|时,带进原式我们惊奇的发现后面这玩意=(-1)^{|S|-|U|}=1$$<br>$$=\sum_{U\subseteq S}G(U)[U=S]$$<br>$$=G(S)$$<br>$$Q.E.D.$$</p>
+<h1 id="经典莫比乌斯反演"><a href="#经典莫比乌斯反演" class="headerlink" title="经典莫比乌斯反演"></a>经典莫比乌斯反演</h1><p>$\phi \ast 1=id$ 的证明</p>
+<p>$$\phi(p^k)\ast1$$  </p>
+<p>$$=\sum_{d|p^k}\phi(d)$$    </p>
+<p>$$=\sum_{i=0}^k\phi(p^i)$$    </p>
+<p>$$=\sum_{i=0}^k(p^i-p^{i-1})$$    </p>
+<p>$$=p^k$$  </p>
+<p>$$Q.E.D.$$</p>
+<p>由于$\phi \ast 1$是积性函数，所以$\phi \ast 1(n)=\prod_{i=1}^k\phi \ast 1(pi)=\prod_{i=1}^kpi=id$,所以$\phi \ast 1=id$    </p>
+<h1 id="子集反演"><a href="#子集反演" class="headerlink" title="子集反演"></a>子集反演</h1><p>对于两个函数$F(S)$和$G(S)$   </p>
+<p>$$F(S)=\sum_{T\subseteq S}G(T)$$   </p>
+<p>那么我们可以得出      </p>
+<p>$$G(S)=\sum_{T\subseteq S}(-1)^{|S|-|T|}F(T)$$  </p>
+<p>$$G(S)=\sum_{T\subseteq S}(-1)^{|S|-|T|}F(T)$$    </p>
+<p>$$=\sum_{T\subseteq S}(-1)^{|S|-|T|}\sum_{U\subseteq T}G(U)$$  </p>
+<p>$$=\sum_{U\subseteq S}G(U)\sum_{U\subseteq T \subseteq S}(-1)^{|S|-|T|}$$  </p>
+<p>通过枚举$|T|-|U|$的元素个数即    </p>
+<p>$$|T|=|U|+i$$    </p>
+<p>$$=\sum_{U\subseteq S}G(U)\sum_{i=0}^{|S|-|U|}\binom{|S|-|U|}{i}(-1)^{|S|-|U|-i}$$  </p>
+<p>然后喜闻乐见的发现了一个二项式定理    </p>
+<p>$$=\sum_{U\subseteq S}G(U)0^{|S|-|U|}$$  </p>
+<p>当$|S|=|U|$时,带进原式我们惊奇的发现后面这玩意    </p>
+<p>$$=(-1)^{|S|-|U|}=1$$   </p>
+<p>$$=\sum_{U\subseteq S}G(U)[U=S]$$  </p>
+<p>$$=G(S)$$  </p>
+<p>$$Q.E.D.$$</p>
 
         </div>
         <!-- .entry-content -->
