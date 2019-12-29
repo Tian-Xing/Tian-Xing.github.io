@@ -442,8 +442,8 @@
           <p>早上没有干劲来颓blog，结果被教练抓去打比赛，一直咕到下午<img class="emoji-coda" src="https://cdn.jsdelivr.net/gh/TomoriCoda/hexo-tag-emojis-bycoda/emojis/2233/heshui.png"></p>
 <a id="more"></a>  
 
-<h1 id="勾股数组"><a href="#勾股数组" class="headerlink" title="勾股数组"></a>勾股数组</h1><p>假设我们已经求得$x^2+y^2=r^2$的所有正整数解$ans$  </p>
-<p>那么我们很容易就可以发现每个象限都有到远点距离等于正整数解的这么多点  </p>
+<p>假设我们已经求得$x^2+y^2=r^2$的所有正整数解$ans$  </p>
+<p>那么我们很容易就可以发现每个象限都有到原点距离等于正整数解的这么多点  </p>
 <p>再算上坐标轴上一定会存在的4个点,那么答案就是$ans*4+4$  </p>
 <p>现在考虑如何快速求出$x^2+y^2=r^2$的所有正整数解  </p>
 <p>这时我们引入勾股方程的概念  </p>
@@ -462,7 +462,7 @@
 <blockquote>
 <p>首先枚举$d\mid2r$,那么$u^2+v^2=2r/d$<br>接下来枚举$u$,验证$u$是否合法(如果存在$u^2+v^2=2r/d$并且$gcd(u,v)=1$则合法)，如果合法答案加一  </p>
 </blockquote>
-<h1 id="CODE"><a href="#CODE" class="headerlink" title="CODE"></a>CODE</h1><pre><code class="cpp">#include &lt;iostream&gt;
+<pre><code class="cpp">#include &lt;iostream&gt;
 #include &lt;cstdio&gt;
 #include &lt;cstring&gt;
 #include &lt;cmath&gt;

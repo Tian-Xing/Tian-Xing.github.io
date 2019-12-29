@@ -441,20 +441,37 @@
         <div class="entry-content">
           <p>思路很是巧妙呢<img class="emoji-coda" src="https://cdn.jsdelivr.net/gh/TomoriCoda/hexo-tag-emojis-bycoda/emojis/xiaodianshi/zan.png"></p>
 <a id="more"></a>
-<p>最开始不难想到这题应该是用容斥去做<br>设g[i]表示至少i个位置是冲突的方案数<br>那么答案就是<br>$$<br>\sum_{i=0}^n(-1)^i g[i] (n-i)!<br>$$<br>首先可以发现一个显然的性质，每个排列里的点最多只有两个点和它冲突(根据绝对值的性质<br>那么一个很妙的方法就是我们把和一个点冲突的点连边<br>这样就形成了一张图，这张图有一些很妙的性质<br>首先这是一张二分图，它的两个子集里都有n个节点<br>我们尝试画出这个二分图<br>以样例”3 1”为例</p>
+<p>最开始不难想到这题应该是用容斥去做    </p>
+<p>设g[i]表示至少i个位置是冲突的方案数  </p>
+<p>那么答案就是<br>$$<br>\sum_{i=0}^n(-1)^i g[i] (n-i)!<br>$$<br>首先可以发现一个显然的性质，每个排列里的点最多只有两个点和它冲突(根据绝对值的性质  </p>
+<p>那么一个很妙的方法就是我们把和一个点冲突的点连边  </p>
+<p>这样就形成了一张图，这张图有一些很妙的性质 </p>
+<p>首先这是一张二分图，它的两个子集里都有n个节点  </p>
+<p>我们尝试画出这个二分图  </p>
+<p>以样例”3 1”为例</p>
 <blockquote>
 <p>$(A_1,B_2)$<br>$(A_2,B_1)$<br>$(A_2,B_3)$<br>$(A_3,B_2)$  </p>
 </blockquote>
-<p>我们发现这张二分图里的一些边连接在一起就形成了一些链，现在我们把这些链提出来<br>下面这个样子</p>
+<p>我们发现这张二分图里的一些边连接在一起就形成了一些链，现在我们把这些链提出来  </p>
+<p>下面这个样子</p>
 <blockquote>
 <p>$A_1-&gt;B_2-&gt;A_3$<br>$B_1-&gt;A_2-&gt;B_3$  </p>
 </blockquote>
-<p>接着很显然可以看出这些链是互不影响的且每条链上只能选择一条边<br>那么我们可以对图进行重构,将它按%k的余数重新排列(因为只在%k相同的情况下存在连边<br>这样的话记录边就只用记录这个点和上个点有没有连边就行<br>接着开始dp<br>重构图之后一共有n*2个点<br>设dp[i][j][0]表示前i个点,选择了j条边,i和i-1有连边的方案数<br>dp[i][j][1]表示前i个点,选择了j条边,i和i-1没有连边的方案数<br>接着可以推出dp式子</p>
+<p>接着很显然可以看出这些链是互不影响的且每条链上只能选择一条边    </p>
+<p>那么我们可以对图进行重构,将它按%k的余数重新排列(因为只在%k相同的情况下存在连边    </p>
+<p>这样的话记录边就只用记录这个点和上个点有没有连边就行    </p>
+<p>接着开始dp  </p>
+<p>重构图之后一共有n*2个点    </p>
+<p>设dp[i][j][0]表示前i个点,选择了j条边,i和i-1有连边的方案数  </p>
+<p>dp[i][j][1]表示前i个点,选择了j条边,i和i-1没有连边的方案数  </p>
+<p>接着可以推出dp式子  </p>
 <blockquote>
 <p>dp[i][j][0]=dp[i-1][j-1][0]+dp[i-1][j-1][1]<br>dp[i][j][1]=dp[i-1][j-1][0] 如果i和i-1有连边  </p>
 </blockquote>
-<p>注意不能选择相邻的两条边因为同一个位置只能有一个数值<br>那么g[i]=dp[n*2][i][0]+dp[n*2][i][1]<br>最后容斥即可<img class="emoji-coda" src="https://cdn.jsdelivr.net/gh/TomoriCoda/hexo-tag-emojis-bycoda/emojis/2233/ye.png"></p>
-<h1 id="CODE"><a href="#CODE" class="headerlink" title="CODE"></a>CODE</h1><pre><code class="cpp">#include &lt;iostream&gt;
+<p>注意不能选择相邻的两条边因为同一个位置只能有一个数值    </p>
+<p>那么g[i]=dp[n*2][i][0]+dp[n*2][i][1]    </p>
+<p>最后容斥即可<img class="emoji-coda" src="https://cdn.jsdelivr.net/gh/TomoriCoda/hexo-tag-emojis-bycoda/emojis/2233/ye.png"></p>
+<pre><code class="cpp">#include &lt;iostream&gt;
 #include &lt;cstdio&gt; 
 #include &lt;cstring&gt;
 using namespace std;

@@ -411,7 +411,7 @@
           <div>
             <ul class="spfk-ul">
               &nbsp<i class="fa fa-tag" aria-hidden="true"></i>&nbsp&nbsp&nbsp&nbsp
-              <li class="spfk-li"><a href="/tags/DP/" class="butterfly-tags">DP</a></li><li class="spfk-li"><a href="/tags/树/" class="butterfly-tags">树</a></li><li class="spfk-li"><a href="/tags/DFS/" class="butterfly-tags">DFS</a></li>
+              <li class="spfk-li"><a href="/tags/DP/" class="butterfly-tags">DP</a></li><li class="spfk-li"><a href="/tags/DFS/" class="butterfly-tags">DFS</a></li><li class="spfk-li"><a href="/tags/树/" class="butterfly-tags">树</a></li>
             </ul>
           </div>
           <script>
@@ -441,7 +441,8 @@
         <div class="entry-content">
           <p>算是较难的一道基环树模板题<img class="emoji-coda" src="https://cdn.jsdelivr.net/gh/TomoriCoda/hexo-tag-emojis-bycoda/emojis/xiaodianshi/chaping.png"></p>
 <a id="more"></a>
-<h1 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h1><p>题意简明扼要，有一堆基环树构成了基环树森林，需求所有基环树的直径之和。  </p>
+
+<p>题意简明扼要，有一堆基环树构成了基环树森林，需求所有基环树的直径之和。  </p>
 <blockquote>
 <p>基环树定义：一棵树有n个节点n条边  </p>
 </blockquote>
@@ -460,7 +461,7 @@
 <p>那么现在可以写出dp式子$answer=max(answer,d[i]+d[j]+dis[i]-dis[j])$  </p>
 <p>这个dp式子的与i有关和与j有关的项是独立的，所以可以单调队列优化。  </p>
 <p>对于每个节点找到他之前的$d[j]-dis[j]$最大的j更新即可  </p>
-<h1 id="CODE"><a href="#CODE" class="headerlink" title="CODE"></a>CODE</h1><pre><code class="cpp">#include &lt;iostream&gt;
+<pre><code class="cpp">#include &lt;iostream&gt;
 #include &lt;cstdio&gt;
 #include &lt;cstring&gt;
 using namespace std;

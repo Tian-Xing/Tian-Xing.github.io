@@ -441,7 +441,8 @@
         <div class="entry-content">
           <p>栈真是和括号完美结合的数据结构呢<img class="emoji-coda" src="https://cdn.jsdelivr.net/gh/TomoriCoda/hexo-tag-emojis-bycoda/emojis/xiaodianshi/zan.png"></p>
 <a id="more"></a>
-<h1 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h1><p>看到此题中的括号一词，我们不难想到栈这个东西  </p>
+
+<p>看到此题中的括号一词，我们不难想到栈这个东西  </p>
 <p>因为有左括号，则必有右括号  </p>
 <p>因为后扫到的左括号先和右括号匹配，所以可以用栈维护  </p>
 <p>那么我们就从右边开始向左边扫，扫到一个位置不能和栈顶元素匹配或者已经被钦定为右括号，就把他丢进右括号的栈里  </p>
@@ -451,7 +452,7 @@
 <p>所以从右边开始贪心即可  </p>
 <p>若扫到的元素不能和栈顶元素匹配，如果把它和别的元素匹配，就会导致一个括号被忽略的情况，所以不能和栈顶匀速匹配就进栈    </p>
 <p>方案的话如果是右括号就是-，左括号就是+</p>
-<h1 id="CODE"><a href="#CODE" class="headerlink" title="CODE"></a>CODE</h1><pre><code class="cpp">#include &lt;iostream&gt;
+<pre><code class="cpp">#include &lt;iostream&gt;
 #include &lt;cstdio&gt;
 #include &lt;cstring&gt;
 using namespace std;

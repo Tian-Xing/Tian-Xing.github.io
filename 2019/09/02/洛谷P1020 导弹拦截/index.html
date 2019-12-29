@@ -441,13 +441,14 @@
         <div class="entry-content">
           <p>小蒟蒻获得的赞最多的一篇题解<img class="emoji-coda" src="https://cdn.jsdelivr.net/gh/TomoriCoda/hexo-tag-emojis-bycoda/emojis/2233/maimeng.png"></p>
 <a id="more"></a>
-<h1 id="导弹拦截"><a href="#导弹拦截" class="headerlink" title="导弹拦截"></a>导弹拦截</h1><p>这道题可以用树状数组、线段树什么的优化</p>
+
+<p>这道题可以用树状数组、线段树什么的优化</p>
 <p><del>但是我一个都不会</del></p>
 <p>而这道题的数据范围又很大</p>
 <p>c++奥赛一本通（meng）上o(n2）的算法过不了</p>
 <p>所以本蒟蒻来说一个o(nlogn)的算法</p>
 <hr>
-<h2 id="问题转换"><a href="#问题转换" class="headerlink" title="问题转换"></a>问题转换</h2><p>第一问很容易就可以想到是求一个最长不上升子序列</p>
+<p>第一问很容易就可以想到是求一个最长不上升子序列</p>
 <p>但是第二问就需要一个转换的思想了</p>
 <p>我们可以把问题中需要几组导弹转化成求一个最长上升子序列</p>
 <p>证明：<br>1、首先我们把这些导弹分为s组（s即为所求答案）</p>
@@ -472,7 +473,7 @@
 <p>组二里可以找到300比他大</p>
 <p>所以最长上升子序列长度为2==答案</p>
 <hr>
-<h2 id="问题求解"><a href="#问题求解" class="headerlink" title="问题求解"></a>问题求解</h2><p>到这里我们发现只要求最长不升子序列和最长上升子序列就好了</p>
+<p>到这里我们发现只要求最长不升子序列和最长上升子序列就好了</p>
 <p>下面说最长上升子序列的o(nlogn)求法（最长不升子序列同理）</p>
 <p>数组a为要求的数列</p>
 <p>首先我们开一个数组k</p>
@@ -491,10 +492,11 @@
 <p>因为它记录的是长为x的上升序列的最后一位</p>
 <p>如果不是上升的，那么它必然可以加入以k[x+1]结尾的上升序列，矛盾</p>
 <hr>
-<h2 id="复杂度"><a href="#复杂度" class="headerlink" title="复杂度"></a>复杂度</h2><p>每次最坏要二分查找（log len）<br>一共要n次<br>len&lt;=n<br>所以算法复杂度为o(nlogn)</p>
+<p>进行复杂度的分析</p>
+<p>每次最坏要二分查找（log len）<br>一共要n次<br>len&lt;=n<br>所以算法复杂度为o(nlogn)</p>
 <p>过这个题稳得一批</p>
 <hr>
-<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><pre><code class="cpp">#include &lt;iostream&gt;
+<pre><code class="cpp">#include &lt;iostream&gt;
 #include &lt;algorithm&gt;
 using namespace std;
 int i,g[10000000],a[10000000],len,k[10000000],zen;

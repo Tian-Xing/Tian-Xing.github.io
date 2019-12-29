@@ -441,12 +441,21 @@
         <div class="entry-content">
           <p>很经典的一道容斥题<img class="emoji-coda" src="https://cdn.jsdelivr.net/gh/TomoriCoda/hexo-tag-emojis-bycoda/emojis/xiaodianshi/duzui.png"></p>
 <a id="more"></a>
-<h1 id="一个很经典的问题"><a href="#一个很经典的问题" class="headerlink" title="一个很经典的问题"></a>一个很经典的问题</h1><p>$$ \sum_{i=1}^n x_i=s(x是正整数)$$<br>这个式子的x的解有多少个?<br>显然这个可以用背包计算<br>用dp[k]表示能表示出的和为k的解的数量，正序枚举k<br>$$ dp[k]=dp[k]+dp[k-money[i]] $$<br>其中money[i]是硬币的面值</p>
-<p>接下来我们给他加上限制，规定第i个x的上界是c[i]<br>现在的x的解的总数可以用容斥原理进行计算  </p>
-<p>我们要求的东西是<br>$$ \left | \bigcap a_i\right | (a_i为第i个元素满足限制下的解集的集合)$$<br>也就等于<br>$$ \left | S \right |-\left | \bigcup {\overline a_i} \right |$$<br>首先我们计算出所有的可能的情况也就是全集s<br>接下来我们把不合法的情况减去<br>根据容斥定理显然有答案=总的情况-1个不满足条件的+2个不满足条件的-3个不满足条件的……<br>那么如果能很快的求出几个不合法集合的并集的话，这道题就可以很轻松的解决了  </p>
-<p>考虑几个不合法集合的并集也是一个等式的形式，不过有的x有下界，有的x没有下界<br>那么显然下界那部分对于每一个解都是存在的<br>那么我们可以把它减去<br>也就是这样的<br>$$\sum x_i=s-所有下界的和$$<br>这个玩意的所有解的数量我们已经用dp处理出来了，直接调用即可  </p>
+<p>先来看一个很经典的问题<br>$$ \sum_{i=1}^n x_i=s(x是正整数)$$<br>这个式子的x的解有多少个?  </p>
+<p>显然这个可以用背包计算  </p>
+<p>用dp[k]表示能表示出的和为k的解的数量，正序枚举k<br>$$ dp[k]=dp[k]+dp[k-money[i]] $$<br>其中money[i]是硬币的面值</p>
+<p>接下来我们给他加上限制，规定第i个x的上界是c[i]    </p>
+<p>现在的x的解的总数可以用容斥原理进行计算  </p>
+<p>我们要求的东西是<br>$$ \left | \bigcap a_i\right | (a_i为第i个元素满足限制下的解集的集合)$$<br>也就等于<br>$$ \left | S \right |-\left | \bigcup {\overline a_i} \right |$$<br>首先我们计算出所有的可能的情况也就是全集s  </p>
+<p>接下来我们把不合法的情况减去  </p>
+<p>根据容斥定理显然有答案=总的情况-1个不满足条件的+2个不满足条件的-3个不满足条件的……  </p>
+<p>那么如果能很快的求出几个不合法集合的并集的话，这道题就可以很轻松的解决了  </p>
+<p>考虑几个不合法集合的并集也是一个等式的形式，不过有的x有下界，有的x没有下界  </p>
+<p>那么显然下界那部分对于每一个解都是存在的  </p>
+<p>那么我们可以把它减去</p>
+<p>也就是这样的<br>$$\sum x_i=s-所有下界的和$$<br>这个玩意的所有解的数量我们已经用dp处理出来了，直接调用即可  </p>
 <p>所以最后只需要枚举子集，然后观察一下子集中元素的个数，套上一个容斥系数即可</p>
-<h1 id="CODE"><a href="#CODE" class="headerlink" title="CODE"></a>CODE</h1><pre><code class="cpp">#include &lt;iostream&gt;
+<pre><code class="cpp">#include &lt;iostream&gt;
 #include &lt;cstdio&gt;
 #include &lt;cstring&gt;
 using namespace std;
