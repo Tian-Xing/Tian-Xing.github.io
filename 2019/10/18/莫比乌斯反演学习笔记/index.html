@@ -465,7 +465,10 @@
 <p>$$=(-1)^{|S|-|U|}=1$$   </p>
 <p>$$=\sum_{U\subseteq S}G(U)[U=S]$$  </p>
 <p>$$=G(S)$$  </p>
-<p>$$Q.E.D.$$</p>
+<p>$$Q.E.D.$$  </p>
+<h1 id="杜教筛"><a href="#杜教筛" class="headerlink" title="杜教筛"></a>杜教筛</h1><p>杜教筛的离散化：因为每一次传进去的参数如果$&lt;\sqrt n$，就直接调用预处理出来的数据，如果$&gt;\sqrt n$就进行记忆化，因为都$&gt; \sqrt n$，而且每个数都可以被表示成$n/x$的形式，那么对于每个n都有不同的x那么就可以把这个存进不同的x里面，开一个$\sqrt n$的数组就行。  </p>
+<p>但是如果n变化了显然$n/x$就不一样了，那么就要全部清空  </p>
+<p>如果有两个参数$n$和$m$,那么也不能这样离散化，因为每次对于$n/i$相等的一段区间可能会进行多次杜教筛计算，同一段表示成$n/x$中的x都是相同的，这样同一段都会被存进同一个$x$里面，这样就会产生冲突</p>
 
         </div>
         <!-- .entry-content -->
@@ -624,7 +627,7 @@
   
   <div class="outer">
     <div id="footer-info" class="inner">
-      &copy; 2019 Tian-Xing<br>
+      &copy; 2020 Tian-Xing<br>
       powered_by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>
