@@ -461,13 +461,13 @@
 <p>$$(x+1)^n = \sum_{i=0}^n \binom{n}{i} x^i$$</p>
 <h2 id="1-6"><a href="#1-6" class="headerlink" title="$1.6$"></a>$1.6$</h2><p>$$\sum_{i=0}^n (-1)^i \binom{n}{i} = 0$$  </p>
 <p>其实就是$1.5$的变形，当$x=-1$的时候。</p>
-<h2 id="1-7"><a href="#1-7" class="headerlink" title="$1.7$"></a>$1.7$</h2><p>$$\binom{n}{m} \ast \binom{m}{r} = \binom{n}{r} \ast \binom{n-r}{m-r}$$ </p>
+<h2 id="1-7"><a href="#1-7" class="headerlink" title="$1.7$"></a>$1.7$</h2><p>$$\binom{n}{m} \times \binom{m}{r} = \binom{n}{r} \times \binom{n-r}{m-r}$$ </p>
 <p>根据定义式将式子展开，可得  </p>
-<p>$$\frac{n!}{m! \ast (n-m)!} \ast \frac{m!}{r! \ast (m-r)!}$$</p>
+<p>$$\frac{n!}{m! \times (n-m)!} \times \frac{m!}{r! \times (m-r)!}$$</p>
 <p>约去$m!$，同时乘$(n-r)!$，再把$(n-m)!$和$r!$交换位置，可得</p>
-<p>$$\frac{n!}{(n-r)! \ast r!} \ast \frac{(n-r)!}{(n-m)! \ast (m-r)!}$$</p>
+<p>$$\frac{n!}{(n-r)! \times r!} \times \frac{(n-r)!}{(n-m)! \times (m-r)!}$$</p>
 <p>也就是</p>
-<p>$$\binom{n}{r} \ast \binom{n-r}{m-r}$$  </p>
+<p>$$\binom{n}{r} \times \binom{n-r}{m-r}$$  </p>
 <p>我们还可以考虑按定义推导，原式计数的是从$n$个元素中选$m$个元素，再从$m$个元素中选$r$个元素的数量，那么我们可以先选出$r$个元素，再考虑有多少个集合包含了它，也就是从剩下的$n-r$个元素中再选$m-r$个。</p>
 <h2 id="1-8"><a href="#1-8" class="headerlink" title="$1.8$"></a>$1.8$</h2><p>$$\sum_{i=0}^{n/2} \binom{n}{2i} = \sum_{i=0}^{n/2} \binom{n}{2i+1} = 2^{n-1}$$</p>
 <p>根据$1.6$，有</p>
@@ -476,33 +476,84 @@
 <p>$$\sum_{i=0}^{n/2} \binom{n}{2i} + \sum_{i=0}^{n/2} \binom{n}{2i+1} = 2^n$$</p>
 <p>所以，有</p>
 <p>$$\sum_{i=0}^{n/2} \binom{n}{2i} = \sum_{i=0}^{n/2} \binom{n}{2i+1} = 2^n \div 2=2^{n-1}$$  </p>
-<h2 id="1-9"><a href="#1-9" class="headerlink" title="$1.9$"></a>$1.9$</h2><p>$$\binom{n+m}{r} = \sum_{i=0}^r \binom{n}{i} \ast \binom{m}{r-i}$$</p>
+<h2 id="1-9"><a href="#1-9" class="headerlink" title="$1.9$"></a>$1.9$</h2><p>$$\binom{n+m}{r} = \sum_{i=0}^r \binom{n}{i} \times \binom{m}{r-i}$$</p>
 <p>根据组合数的定义，在$n+m$个数中选$r$个的方案数等于枚举在$n$个元素中选几个，剩下的在$m$个元素中选。</p>
 <p>特别的，当$n=m=r$时，有</p>
-<p>$$\binom{2n}{n} = \sum_{i=0}^n \binom{n}{i} \binom{n}{n-i} = \sum_{i=0}^n\binom{n}{i} \ast \sum_{i=0}^n \binom{n}{i} =\sum_{i=0}^n \binom{n}{i}^2$$</p>
-<h2 id="1-10"><a href="#1-10" class="headerlink" title="$1.10$"></a>$1.10$</h2><p>$$m \ast \binom{n}{m} = n \ast \binom{n-1}{m-1}$$</p>
+<p>$$\binom{2n}{n} = \sum_{i=0}^n \binom{n}{i} \binom{n}{n-i} = \sum_{i=0}^n\binom{n}{i} \times \sum_{i=0}^n \binom{n}{i} =\sum_{i=0}^n \binom{n}{i}^2$$</p>
+<h2 id="1-10"><a href="#1-10" class="headerlink" title="$1.10$"></a>$1.10$</h2><p>$$m \times \binom{n}{m} = n \times \binom{n-1}{m-1}$$</p>
 <p>根据定义式将式子拆开，有</p>
-<p>$$m \ast \frac{n!}{m! \ast (n-m)!}$$</p>
+<p>$$m \times \frac{n!}{m! \times (n-m)!}$$</p>
 <p>将$m$和分母中的$m!$约分，再将分子里的$n!$中拆一个$n$出来，得到</p>
-<p>$$n \ast \frac{(n-1)!}{(m-1)! \ast (n-m)!}$$</p>
-<h2 id="1-11"><a href="#1-11" class="headerlink" title="$1.11$"></a>$1.11$</h2><p>$$\sum_{i=1}^n \binom{n}{i} \ast i = n \ast 2^{n-1}$$  </p>
+<p>$$n \times \frac{(n-1)!}{(m-1)! \times (n-m)!}$$</p>
+<h2 id="1-11"><a href="#1-11" class="headerlink" title="$1.11$"></a>$1.11$</h2><p>$$\sum_{i=1}^n \binom{n}{i} \times i = n \times 2^{n-1}$$  </p>
 <p>还是按照定义式展开，并将$i$乘进去，可得</p>
-<p>$$n \sum_{i=1}^n \frac{(n-1)!}{(i-1)! \ast (n-i)!}$$</p>
+<p>$$n \sum_{i=1}^n \frac{(n-1)!}{(i-1)! \times (n-i)!}$$</p>
 <p>也就是</p>
 <p>$$n \sum_{i=1}^n \binom{n-1}{i-1}$$</p>
 <p>用$i-1$代替$i$,得</p>
 <p>$$n \sum_{i=0}^{n-1} \binom{n-1}{i}$$</p>
 <p>也就是</p>
-<p>$$n \ast 2^{i-1}$$</p>
-<h2 id="1-12"><a href="#1-12" class="headerlink" title="$1.12$"></a>$1.12$</h2><p>$$\sum_{i=1}^n \binom{n}{i} \ast i^2 = n \ast (n+1) \ast 2^{n-2}$$ </p>
+<p>$$n \times 2^{i-1}$$</p>
+<h2 id="1-12"><a href="#1-12" class="headerlink" title="$1.12$"></a>$1.12$</h2><p>$$\sum_{i=1}^n \binom{n}{i} \times i^2 = n \times (n+1) \times 2^{n-2}$$ </p>
 <p>也同样按定义式拆开，将$i$乘进去，得到</p>
-<p>$$n \sum_{i=0}^{n-1} \binom{n-1}{i} \ast (i+1)$$</p>
-<p>$$= n \sum_{i=0}^{n-1} \binom{n-1}{i} + n \sum_{i=0}^{n-1} \binom{n-1}{i} \ast i$$</p>
-<p>$$= n \ast 2^{n-1} + n \ast (n-1) \ast 2^{n-2}$$</p>
-<p>$$= n \ast 2^{n-2} \ast (n+2-1)$$</p>
-<p>$$= n \ast (n+1) \ast 2^{n-2}$$</p>
+<p>$$n \sum_{i=0}^{n-1} \binom{n-1}{i} \times (i+1)$$</p>
+<p>$$= n \sum_{i=0}^{n-1} \binom{n-1}{i} + n \sum_{i=0}^{n-1} \binom{n-1}{i} \times i$$</p>
+<p>$$= n \times 2^{n-1} + n \times (n-1) \times 2^{n-2}$$</p>
+<p>$$= n \times 2^{n-2} \times (n+2-1)$$</p>
+<p>$$= n \times (n+1) \times 2^{n-2}$$</p>
 <h2 id="1-13"><a href="#1-13" class="headerlink" title="$1.13$"></a>$1.13$</h2><p>$$\sum_{i=k}^n \binom{i}{k} = \binom{n+1}{k+1}$$</p>
 <p>把$1.2$式带进去就好了。</p>
+<h1 id="广义莫比乌斯反演"><a href="#广义莫比乌斯反演" class="headerlink" title="广义莫比乌斯反演"></a>广义莫比乌斯反演</h1><h2 id="经典莫比乌斯反演"><a href="#经典莫比乌斯反演" class="headerlink" title="经典莫比乌斯反演"></a>经典莫比乌斯反演</h2><p>$\phi \ast 1=id$ 的证明</p>
+<p>$$\phi(p^k)\ast1$$  </p>
+<p>$$=\sum_{d|p^k}\phi(d)$$    </p>
+<p>$$=\sum_{i=0}^k\phi(p^i)$$    </p>
+<p>$$=\sum_{i=0}^k(p^i-p^{i-1})$$    </p>
+<p>$$=p^k$$  </p>
+<p>$$Q.E.D.$$</p>
+<p>由于$\phi \ast 1$是积性函数，所以$\phi \ast 1(n)=\prod_{i=1}^k\phi \ast 1(pi)=\prod_{i=1}^kpi=id$,所以$\phi \ast 1=id$    </p>
+<h2 id="子集反演"><a href="#子集反演" class="headerlink" title="子集反演"></a>子集反演</h2><p>对于两个函数$F(S)$和$G(S)$   </p>
+<p>$$F(S)=\sum_{T\subseteq S}G(T)$$   </p>
+<p>那么我们可以得出      </p>
+<p>$$G(S)=\sum_{T\subseteq S}(-1)^{|S|-|T|}F(T)$$  </p>
+<p>$$G(S)=\sum_{T\subseteq S}(-1)^{|S|-|T|}F(T)$$    </p>
+<p>$$=\sum_{T\subseteq S}(-1)^{|S|-|T|}\sum_{U\subseteq T}G(U)$$  </p>
+<p>$$=\sum_{U\subseteq S}G(U)\sum_{U\subseteq T \subseteq S}(-1)^{|S|-|T|}$$  </p>
+<p>通过枚举$|T|-|U|$的元素个数即    </p>
+<p>$$|T|=|U|+i$$    </p>
+<p>$$=\sum_{U\subseteq S}G(U)\sum_{i=0}^{|S|-|U|}\binom{|S|-|U|}{i}(-1)^{|S|-|U|-i}$$  </p>
+<p>然后喜闻乐见的发现了一个二项式定理    </p>
+<p>$$=\sum_{U\subseteq S}G(U)0^{|S|-|U|}$$  </p>
+<p>当$|S|=|U|$时,带进原式我们惊奇的发现后面这玩意    </p>
+<p>$$=(-1)^{|S|-|U|}=1$$   </p>
+<p>$$=\sum_{U\subseteq S}G(U)[U=S]$$  </p>
+<p>$$=G(S)$$  </p>
+<p>$$Q.E.D.$$  </p>
+<h2 id="杜教筛"><a href="#杜教筛" class="headerlink" title="杜教筛"></a>杜教筛</h2><p>杜教筛的离散化：因为每一次传进去的参数如果$&lt;\sqrt n$，就直接调用预处理出来的数据，如果$&gt;\sqrt n$就进行记忆化，因为都$&gt; \sqrt n$，而且每个数都可以被表示成$n/x$的形式，那么对于每个n都有不同的x那么就可以把这个存进不同的x里面，开一个$\sqrt n$的数组就行。  </p>
+<p>但是如果n变化了显然$n/x$就不一样了，那么就要全部清空  </p>
+<p>如果有两个参数$n$和$m$,那么也不能这样离散化，因为每次对于$n/i$相等的一段区间可能会进行多次杜教筛计算，同一段表示成$n/x$中的x都是相同的，这样同一段都会被存进同一个$x$里面，这样就会产生冲突</p>
+<h2 id="min-max-容斥"><a href="#min-max-容斥" class="headerlink" title="$min-max$容斥"></a>$min-max$容斥</h2><p>设$max(S)$表示集合$S$中的最大值，$min(S)$表示集合$S$中的最小值，那么可以这样反演</p>
+<p>$$max(S) = \sum_{T \subseteq S} (-1)^{\left| T \right| -1} min(T)$$</p>
+<p>考虑设$f(\left|  T \right|)$为反演系数，针对集合中所有元素中第$x+1$大的元素，用$num(x+1)$表示其出现次数，考虑该元素在多少个集合里产生了贡献，有</p>
+<p>$$num(k+1) = \sum_{i=0}^k \binom{k}{i} \times f(k+1)$$</p>
+<p>二项式反演，得</p>
+<p>$$num(k+1) = \sum_{i=0}^k \binom{k}{i} \times f(k+1)$$</p>
+<p>当要求集合中最大的元素时,只有最大值的元素出现次数为$1$，其它元素出现次数都为$0$,所以有</p>
+<p>$$[k==0] = \sum_{i=0}^k \binom{k}{i} \times f(k+1)$$  </p>
+<p>二项式反演，得</p>
+<p>$$f(k+1) = \sum_{i=0}^k (-1)^{k-i} \binom{k}{i} \times [i==0]$$  </p>
+<p>所以对于一个大小为$x$的集合来说,其反演系数为</p>
+<p>$$f(k)=(-1)^{k-1}$$</p>
+<p>$$Q.E.D.$$</p>
+<p>如果我们仔细观察一下推导过程，就会发现我们不仅能求最大和最小值，还能求第$x$大值。</p>
+<p>转到对容斥系数的证明</p>
+<p>$$num(k+1) = \sum_{i=0}^k \binom{k}{i} \times f(k+1)$$</p>
+<p>当求第$x$大值的时候，只有$num(x)$为$1$，其它都为$0$,所以有</p>
+<p>$$[k==x-1] = \sum_{i=0}^k \binom{k}{i} \times f(k+1)$$</p>
+<p>二项式反演，有</p>
+<p>$$f(k+1) = \sum_{i=0}^k (-1)^{k-i} \binom{k}{i} \times [i==x-1]$$</p>
+<p>$$f(k) = (-1)^{k-x} \times \binom{k-1}{x-1}$$</p>
+<p>所以得到求第$x$大的$min-max$容斥式子</p>
+<p>$$kthmax(S) = \sum_{T \subseteq S} (-1)^{\left| T \right| -x} \times \binom{\left| T \right| -1}{x-1} min(T)$$</p>
 
         </div>
         <!-- .entry-content -->
