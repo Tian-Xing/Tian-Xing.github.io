@@ -533,6 +533,8 @@
 <p>如果有两个参数$n$和$m$,那么也不能这样离散化，因为每次对于$n/i$相等的一段区间可能会进行多次杜教筛计算，同一段表示成$n/x$中的x都是相同的，这样同一段都会被存进同一个$x$里面，这样就会产生冲突</p>
 <h2 id="min-max-容斥"><a href="#min-max-容斥" class="headerlink" title="$min-max$容斥"></a>$min-max$容斥</h2><p>设$max(S)$表示集合$S$中的最大值，$min(S)$表示集合$S$中的最小值，那么可以这样反演</p>
 <p>$$max(S) = \sum_{T \subseteq S} (-1)^{\left| T \right| -1} min(T)$$</p>
+<p>$$min(S) = \sum_{T \subseteq S} (-1)^{\left| T \right| -1} max(T)$$</p>
+<p>由于求$min$和求$max$类似，所以以下只对求$max$进行讨论。</p>
 <p>考虑设$f(\left|  T \right|)$为反演系数，针对集合中所有元素中第$x+1$大的元素，用$num(x+1)$表示其出现次数，考虑该元素在多少个集合里产生了贡献，有</p>
 <p>$$num(k+1) = \sum_{i=0}^k \binom{k}{i} \times f(k+1)$$</p>
 <p>二项式反演，得</p>
